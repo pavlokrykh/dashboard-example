@@ -34,8 +34,24 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+      // Enforce Angular naming conventions
+      "@angular-eslint/component-class-suffix": [
+        "error",
+        {
+          suffixes: ["Component"],
+        },
+      ],
+      "@angular-eslint/directive-class-suffix": [
+        "error",
+        {
+          suffixes: ["Directive"],
+        },
+      ],
+      
       "prettier/prettier": "error",
-      "max-len": ["error", { "code": 120 }],
+      "max-len": ["error", { code: 120 }],
+      "quotes": ["error", "single", { "avoidEscape": true }],
+      "indent": ["error", 2],
     },
   },
   {

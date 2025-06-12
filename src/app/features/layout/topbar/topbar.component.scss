@@ -1,0 +1,12 @@
+.topbar {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid white; // TODO: border
+}
+
+.title {
+  font-size: 32px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+}

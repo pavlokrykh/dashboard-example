@@ -22,7 +22,9 @@
     {
       "files": ["*.component.scss", "*.scss"],
       "options": {
-        "printWidth": 120
+        "printWidth": 120,
+        "singleQuote": true,
+        "tabWidth": 2
       }
     }
   ]
