@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "lint": "ng lint",
+    "format": "prettier --write \"src/**/*.{ts,html,scss}\""
+  }
+}
