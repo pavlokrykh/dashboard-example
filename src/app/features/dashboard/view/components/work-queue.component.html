@@ -1,5 +1,15 @@
 <div class="card">
-  <span class="card-title">Work Queue</span>
+  <span class="card-title">Work Queue</span>  <div class="tabs">
+    <button class="btn-tab" [class.active]="$activeTab() === WorkQueueTab.Assigned" (click)="setActiveTab(WorkQueueTab.Assigned)">
+      Assigned to me(12)
+    </button>
+    <button class="btn-tab" [class.active]="$activeTab() === WorkQueueTab.Pending" (click)="setActiveTab(WorkQueueTab.Pending)">
+      Pending Review (8)
+    </button>
+    <button class="btn-tab" [class.active]="$activeTab() === WorkQueueTab.Referrals" (click)="setActiveTab(WorkQueueTab.Referrals)">
+      Referrals (3)
+    </button>
+  </div>
   
   <div class="table-container">
     <table class="work-queue-table">
@@ -14,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        @for (task of $tasks(); track $index) {
+        @for (task of $filteredTasks(); track $index) {
           <tr>
             <td class="originator-column">
               <div class="originator-info">

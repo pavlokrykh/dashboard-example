@@ -3,6 +3,7 @@
 @use 'structures/page';
 @use 'structures/columns';
 @use 'structures/table';
+@use 'structures/button';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -15,7 +16,7 @@
 body {
   margin: 0;
   background-color: $body-bg;
-  color: $body-text;
+  color: $text-primary;
 
   // font
   font-family: "Montserrat", sans-serif;

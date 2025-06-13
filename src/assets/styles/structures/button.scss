@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+// Tab/Navigation buttons
+.btn-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 2rem;
+  font-weight: $fw-medium;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: $button-bg;
+  color: $text-secondary;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  &:hover,
+  &.active {
+    background-color: $primary-color;
+    color: #fff;
+  }
+}
+
+.btn-tab-large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid $border-color;
+
+  &:hover,
+  &.active {
+    background-color: $primary-color;
+    color: #fff;
+    border-color: $primary-color;
+  }
+}
+
+// Primary action buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: $fw-medium;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 0.875rem;
+  background-color: $primary-color;
+  color: #fff;
+
+  &:hover,
+  &:active {
+    background-color: $secondary-color;
+  }
+
+  &:disabled {
+    background-color: rgba($primary-color, 0.5);
+    cursor: not-allowed;
+  }
+}
+
+.btn-large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.btn-small {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+

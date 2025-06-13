@@ -8,7 +8,7 @@ $primary-color: #3B82F6;
 $secondary-color: #1E40AF;
 $status-pending-color: #FDD261;
 $status-completed-color: #3BB979;
-
+$button-bg: #0C0F17;
 $border-color: #313B54;
 $card-bg: #1E2233;
 
@@ -20,7 +20,8 @@ $breakpoint-tablet: 1024px; // medium devices (tablets, 1024px and up)
 $grid-columns: 12;
 
 // text
-$body-text: #E5E7EB;
+$text-primary: #E5E7EB;
+$text-secondary: #C5C9D3;
 $fw-normal: 400;
 $fw-medium: 500;
 $fw-semibold: 600;

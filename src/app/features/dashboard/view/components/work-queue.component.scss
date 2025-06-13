@@ -1,9 +1,13 @@
 @use 'variables' as *;
 @use 'structures/table';
 
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
 .work-queue-table {
-  // Component-specific styles only
-  
   .originator-info {
     display: flex;
     align-items: center;
