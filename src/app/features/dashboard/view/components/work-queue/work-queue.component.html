@@ -3,13 +3,13 @@
 
   <div class="tabs">
     <button class="btn-tab" [class.active]="$activeTab() === WorkQueueTab.Assigned" (click)="setActiveTab(WorkQueueTab.Assigned)">
-      Assigned to me(12)
+      Assigned to me({{ $tasks().length }})
     </button>
     <button class="btn-tab" [class.active]="$activeTab() === WorkQueueTab.Pending" (click)="setActiveTab(WorkQueueTab.Pending)">
-      Pending Review (8)
+      Pending Review ({{ $pendingTasks().length }})
     </button>
     <button class="btn-tab" [class.active]="$activeTab() === WorkQueueTab.Referrals" (click)="setActiveTab(WorkQueueTab.Referrals)">
-      Referrals (3)
+      Referrals ({{ $referralTasks().length }})
     </button>
   </div>
   
@@ -30,9 +30,7 @@
           <tr>
             <td class="originator-column">
               <div class="originator-info">
-                <div class="initials">
-                  {{ task.originator | originatorInitials }}
-                </div>
+                <app-profile-circle [name]="task.originator" />
                 <span>{{ task.originator }}</span>
               </div>
             </td>

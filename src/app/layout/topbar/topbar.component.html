@@ -1,5 +1,10 @@
 <div class="topbar">
-  <div class="page-width title">
-    <div>Hi {{ $userName() }}, welcome! You have 12 open tasks.</div>
-  </div>    
+  <div class="page-width topbar-content">
+    <span class="title">Hi {{ $name() }}, welcome! You have {{ $tasks().length }} open tasks.</span>
+
+    <div class="right-side">
+      <app-search placeholder="Search" (searchValue)="onSearch($event)" />
+      <app-profile-circle [name]="$userName()" />
+    </div>
+  </div>
 </div>

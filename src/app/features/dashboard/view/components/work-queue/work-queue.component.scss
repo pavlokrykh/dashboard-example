@@ -4,7 +4,14 @@
 .tabs {
   display: flex;
   gap: 0.5rem;
-  margin-top: 1rem;
+  flex-shrink: 0;
+}
+
+.table-container {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+  max-height: calc(550px - 130px);
 }
 
 .work-queue-table {
@@ -12,23 +19,6 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-
-    .initials {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      background: linear-gradient(
-        45deg,
-        rgba($secondary-color, 0.3) 0%,
-        rgba($secondary-color, 1) 100%
-      );
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: $fw-medium;
-      font-size: 0.875rem;
-    }
   }
 
   .client-info {

@@ -1,4 +1,4 @@
-@use '../../../assets/styles/variables' as *;
+@use 'variables' as *;
 
 .topbar {
   display: flex;
@@ -7,9 +7,19 @@
   height: $topbar-height;
 }
 
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.right-side {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .title {
   font-size: 2rem;
   font-weight: $fw-medium;
-  display: flex;
-  align-items: center;
 }

@@ -86,13 +86,5 @@
     "type": "Loss Control Request",
     "status": 2,
     "created": "05/10/2025"
-  },
-  {
-    "originator": "Robert Clarke",
-    "client": "Silverstone Automotive",
-    "line": "Auto Liability",
-    "type": "Email",
-    "status": 1,
-    "created": "05/06/2025"
   }
 ]

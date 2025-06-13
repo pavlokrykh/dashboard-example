@@ -3,9 +3,8 @@ import { Component, computed, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TaskType, WorkQueueStatus } from '@core/models/work-queue-item.model';
 import { WorkQueueService } from '@dashboard/data-access/services/work-queue.service';
-import { WorkQueueStore } from '@dashboard/data-access/state/work-queue.store';
+import { ProfileCircleComponent } from '@shared/components/profile-circle/profile-circle.component';
 import { useRouteFragment } from '@shared/utils/route-fragment.util';
-import { OriginatorInitialsPipe } from './pipes/originator-initials.pipe';
 import { WorkQueueStatusClassPipe } from './pipes/work-queue-status-class.pipe';
 import { WorkQueueStatusPipe } from './pipes/work-queue-status.pipe';
 
@@ -17,14 +16,13 @@ export enum WorkQueueTab {
 
 @Component({
   selector: 'app-work-queue',
-  imports: [WorkQueueStatusPipe, WorkQueueStatusClassPipe, NgClass, OriginatorInitialsPipe],
+  imports: [WorkQueueStatusPipe, WorkQueueStatusClassPipe, NgClass, ProfileCircleComponent],
   templateUrl: './work-queue.component.html',
   styleUrls: ['./work-queue.component.scss'],
   providers: [WorkQueueService],
 })
 export class WorkQueueComponent {
   private readonly workQueueService = inject(WorkQueueService);
-  private readonly workQueueStore = inject(WorkQueueStore);
 
   // Use the route fragment utility
   private readonly routeFragment = useRouteFragment<WorkQueueTab>({
@@ -32,14 +30,16 @@ export class WorkQueueComponent {
     fragmentMapper: (fragment) => this.getTabFromFragment(fragment),
   });
   readonly $activeTab = this.routeFragment.$fragment;
-  readonly $tasks = this.workQueueStore.tasks;
+  readonly $tasks = this.workQueueService.$filteredTasks;
 
+  readonly $pendingTasks = computed(() => this.$tasks().filter((task) => task.status === WorkQueueStatus.Pending));
+  readonly $referralTasks = computed(() => this.$tasks().filter((task) => task.type === TaskType.Underwriter));
   readonly $filteredTasks = computed(() => {
     switch (this.$activeTab()) {
       case WorkQueueTab.Pending:
-        return this.$tasks().filter((task) => task.status === WorkQueueStatus.Pending);
+        return this.$pendingTasks();
       case WorkQueueTab.Referrals:
-        return this.$tasks().filter((task) => task.type === TaskType.Underwriter);
+        return this.$referralTasks();
       case WorkQueueTab.Assigned:
       default:
         return this.$tasks();

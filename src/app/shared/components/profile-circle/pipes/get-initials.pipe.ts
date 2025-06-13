@@ -1,9 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'originatorInitials',
+  name: 'getInitials',
+  standalone: true,
 })
-export class OriginatorInitialsPipe implements PipeTransform {
+export class GetInitialsPipe implements PipeTransform {
   transform(name: string): string {
     if (!name) return '';
 

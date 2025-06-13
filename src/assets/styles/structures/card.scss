@@ -6,9 +6,15 @@
   border-radius: 1.5rem;
   background-color: $card-bg;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 
   .card-title {
     font-size: 1.5rem;
     font-weight: $fw-medium;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
   }
 }
