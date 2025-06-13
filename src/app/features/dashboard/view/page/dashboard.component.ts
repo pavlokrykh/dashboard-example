@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WorkQueueComponent } from '../components/work-queue.component';
+import { WorkQueueComponent } from '@dashboard/view/components/work-queue.component';
 
 @Component({
   selector: 'app-dashboard',

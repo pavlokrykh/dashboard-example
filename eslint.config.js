@@ -56,7 +56,6 @@ module.exports = tseslint.config(
       }],
       "max-len": ["error", { code: 120 }],
       "quotes": ["error", "single", { "avoidEscape": true }],
-      "indent": ["error", 2],
       "@typescript-eslint/no-restricted-imports": [
         "error",
         {

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { IWorkQueueItem } from '@core/models/work-queue-item.model';
 import { Observable } from 'rxjs';
-import { IWorkQueueItem } from '../../models/work-queue-item.model';
 
 @Injectable({
   providedIn: 'root',

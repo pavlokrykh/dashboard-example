@@ -19,7 +19,7 @@
             <td class="originator-column">
               <div class="originator-info">
                 <div class="initials">
-                  {{ task.originatorInitials }}
+                  {{ task.originator | originatorInitials }}
                 </div>
                 <span>{{ task.originator }}</span>
               </div>
@@ -32,14 +32,12 @@
             </td>
             <td class="type-column">{{ task.type }}</td>
             <td class="status-column">
-              <div class="status-badge" 
-                   [class.status-new]="task.status === 'New'"
-                   [class.status-pending]="task.status === 'Pending Review'"
-                   [class.status-completed]="task.status === 'Completed'">
-                {{ task.status }}
+              <div class="status-badge" [ngClass]="task.status | workQueueStatusClass">
+                {{ task.status | workQueueStatus }}
               </div>
             </td>
             <td class="created-column">{{ task.created }}</td>
+            <!-- TODO: action -->
             <td class="actions-column">
               <button class="info-button" aria-label="More information">
                 <i class="info-icon">i</i>

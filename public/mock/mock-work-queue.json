@@ -1,56 +1,50 @@
 [
   {
     "originator": "Sam Masters",
-    "originatorInitials": "SM",
     "client": "NAMEX Tech Solutions",
     "line": "Cyber Liability",
     "type": "Underwriter Referral",
-    "status": "New",
+    "status": 1,
     "created": "04/16/2025"
   },
   {
     "originator": "Annalise Willis",
-    "originatorInitials": "AW",
     "client": "Maritime Logistics Corp",
     "line": "Marine Cargo",
     "type": "Underwriter Referral",
-    "status": "New",
+    "status": 1,
     "created": "04/20/2025"
   },
   {
     "originator": "Patrick Devonport",
-    "originatorInitials": "PD",
     "client": "GreenField Energy Ltd",
     "line": "Environmental",
     "type": "Loss Control Request",
-    "status": "New",
+    "status": 1,
     "created": "04/16/2025"
   },
   {
     "originator": "Ana Killian",
-    "originatorInitials": "AK",
     "client": "NorthStar Financial Group",
     "line": "DSO Liability",
     "type": "Underwriter Referral",
-    "status": "Pending Review",
+    "status": 2,
     "created": "04/22/2025"
   },
   {
     "originator": "Ana Killian",
-    "originatorInitials": "AK",
     "client": "Alliance Healthcare Systems",
     "line": "Medical Malpractice",
     "type": "Email",
-    "status": "Completed",
+    "status": 3,
     "created": "04/28/2025"
   },
   {
-    "originator": "Me",
-    "originatorInitials": "MK",
+    "originator": "Arthur Morgan",
     "client": "QuantumTech Industries",
     "line": "Product Liability",
     "type": "Email",
-    "status": "Completed",
+    "status": 3,
     "created": "04/20/2025"
   }
 ]
