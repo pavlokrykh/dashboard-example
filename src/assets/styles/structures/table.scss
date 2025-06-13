@@ -31,13 +31,16 @@ table {
     border-bottom: 1px solid $border-color;
     vertical-align: middle;
   }
-  
-  tbody tr {
-    border-bottom: 1px solid $border-color;
-    
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.03);
-    }
+    tbody tr {
+      border-bottom: 1px solid $border-color;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+      }
+
+      &:nth-child(even) {
+        background-color: $table-even-row-bg;
+      }
   }
 }
 
@@ -45,10 +48,8 @@ table {
 .status-badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
-  border-radius: 1rem;
   font-size: 0.875rem;
-  
+
   &::before {
     content: '';
     display: inline-block;
@@ -59,35 +60,19 @@ table {
   }
 }
 
-// Standard status types
-.status-new {
-  background-color: rgba(75, 78, 252, 0.1);
-  color: #4B4EFC;
-  
-  &::before {
-    background-color: #4B4EFC;
-  }
+.status-new::before {
+  background-color: $primary-color;
 }
 
-.status-pending {
-  background-color: rgba(247, 181, 0, 0.1);
-  color: #F7B500;
-  
-  &::before {
-    background-color: #F7B500;
-  }
+.status-pending::before {
+  background-color: $status-pending-color;
 }
 
-.status-completed {
-  background-color: rgba(52, 199, 89, 0.1);
-  color: #34C759;
-  
-  &::before {
-    background-color: #34C759;
-  }
+.status-completed::before {
+  background-color: $status-completed-color;
 }
 
-// Common button styles
+// TODO: action ommon button styles
 .icon-button {
   width: 2rem;
   height: 2rem;

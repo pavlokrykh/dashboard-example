@@ -13,7 +13,11 @@
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
-      background-color: #2E5AAC;
+      background: linear-gradient(
+        45deg,
+        rgba($secondary-color, 0.3) 0%,
+        rgba($secondary-color, 1) 100%
+      );
       color: white;
       display: flex;
       align-items: center;

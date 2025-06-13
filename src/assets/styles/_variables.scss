@@ -5,8 +5,12 @@ $topbar-height: 96px;
 
 // colors
 $primary-color: #3B82F6;
+$secondary-color: #1E40AF;
+$status-pending-color: #FDD261;
+$status-completed-color: #3BB979;
+
 $border-color: #313B54;
-$card-bg: #1E2233; // TODO: card group
+$card-bg: #1E2233;
 
 // breakpoints
 $breakpoint-mobile: 768px; // small devices (landscape phones, 768px and up)
@@ -25,3 +29,4 @@ $fw-bold: 700;
 // table styles
 $table-header-text: #94A3B8;
 $table-header-bg: #252A3D;
+$table-even-row-bg: #232838;
