@@ -1,3 +1,14 @@
+@use 'variables' as *;
+
 .card {
-    // TODO
+  border: 1px solid $border-color;
+  color: $body-text;
+  border-radius: 1.5rem;
+  background-color: $card-bg;
+  padding: 1rem;
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: $fw-medium;
+  }
 }

@@ -1,8 +1,15 @@
-@use './assets/styles/variables' as *;
-@use './assets/styles/structures/card';
-@use './assets/styles/structures/page';
+@use 'variables' as *;
+@use 'structures/card';
+@use 'structures/page';
+@use 'structures/columns';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -12,6 +19,6 @@ body {
   // font
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: $fw-normal;
   font-style: normal;
 }

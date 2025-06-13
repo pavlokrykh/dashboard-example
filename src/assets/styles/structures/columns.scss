@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+// Mixin to calculate percentage width
+@mixin make-col($cols) {
+	width: percentage($cols / $grid-columns);
+}
+
+// Mobile-first column classes (for mobile, using col-sm-*)
+@for $i from 1 through $grid-columns {
+	.col-sm-#{$i} {
+		@include make-col($i);
+	}
+}
+
+// Tablet breakpoint: screens ≥768px, using col-md-*
+@media (min-width: $breakpoint-mobile) {
+	@for $i from 1 through $grid-columns {
+		.col-md-#{$i} {
+			@include make-col($i);
+		}
+	}
+}
+
+// Desktop breakpoint: screens ≥1024px, using col-*
+@media (min-width: $breakpoint-tablet) {
+	@for $i from 1 through $grid-columns {
+		.col-#{$i} {
+			@include make-col($i);
+		}
+	}
+}

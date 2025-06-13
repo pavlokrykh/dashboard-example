@@ -1,7 +1,22 @@
 // general variables
 $body-bg: #121622;
-$body-text: #E5E7EB;
 $page-width: 1656px;
+$topbar-height: 96px;
 
 // colors
 $primary-color: #3B82F6;
+$border-color: #313B54;
+$card-bg: #1E2233; // TODO: card group
+
+// breakpoints
+$breakpoint-mobile: 768px; // small devices (landscape phones, 768px and up)
+$breakpoint-tablet: 1024px; // medium devices (tablets, 1024px and up)
+
+// grid
+$grid-columns: 12;
+
+// text
+$body-text: #E5E7EB;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-bold: 700;
