@@ -1,5 +1,16 @@
 @use 'variables' as *;
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  margin: 0 -0.5rem;
+}
+
+[class*="col-"] {
+  padding: 0 0.5rem;
+}
+
 // Mixin to calculate percentage width
 @mixin make-col($cols) {
 	width: percentage($cols / $grid-columns);

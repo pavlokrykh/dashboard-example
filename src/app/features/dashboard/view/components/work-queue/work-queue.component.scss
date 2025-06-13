@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    
+
     .initials {
       width: 2rem;
       height: 2rem;
@@ -30,27 +30,27 @@
       font-size: 0.875rem;
     }
   }
-  
+
   .client-info {
     .client-name {
       font-weight: $fw-medium;
       margin-bottom: 0.25rem;
     }
-    
+
     .line-name {
       font-size: 0.875rem;
-      color: $table-header-text;
+      color: $text-header;
     }
   }
-  
+
   .info-button {
     @extend .icon-button;
-    
+
     .info-icon {
       font-style: normal;
       font-weight: $fw-bold;
       font-size: 0.75rem;
-      color: $table-header-text;
+      color: $text-header;
     }
   }
 }

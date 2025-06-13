@@ -47,7 +47,7 @@ module.exports = tseslint.config(
           suffixes: ["Directive"],
         },
       ],
-      
+      "@angular-eslint/no-input-rename": "off",
       "prettier/prettier": ["error", {
         "trailingComma": "all",
         "singleQuote": true,

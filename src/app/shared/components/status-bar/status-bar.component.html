@@ -1,0 +1,36 @@
+<div class="status-bar">
+  <!-- Target value display above the bar -->
+  @let target = $target();
+  @if (target && $targetDisplayValue()) {
+    <div class="status-bar-target-label" [style.left.%]="target * 100">
+      <span class="target-value">{{ $targetDisplayValue() }}</span>
+      <div class="target-arrow-down"></div>
+    </div>
+  }
+  <div class="status-bar-track">
+    @for (range of $ranges(); track range.status) {
+      <div 
+        class="status-bar-segment" 
+        [class]="range.status | portfolioGoalStatusClass"
+        [style.flex-grow]="range.max - range.min">
+      </div>
+    }
+  </div>
+  
+  @let left = $current() * 100;
+  <div class="status-bar-indicator" [style.left.%]="left">
+    <div class="indicator-value">
+      {{ $displayValue() || ($current() | number:'1.1-1') }}{{ $displaySuffix() || '' }}
+    </div>
+  </div>
+    <!-- Current value arrow below the bar -->
+  <div class="status-bar-current-arrow" [style.left.%]="left">
+    <div class="current-arrow-up" [class]="$arrowColorClass()"></div>
+  </div>
+  <!-- Status display below the arrow -->
+  @if ($statusDisplayValue()) {
+    <div class="status-bar-status" [style.left.%]="left">
+      <span class="status-value" [class]="$statusColorClass()">{{ $statusDisplayValue() }}</span>
+    </div>
+  }
+</div>

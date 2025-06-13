@@ -46,5 +46,53 @@
     "type": "Email",
     "status": 3,
     "created": "04/20/2025"
+  },
+  {
+    "originator": "Jessica Chen",
+    "client": "BlueSky Manufacturing Inc",
+    "line": "General Liability",
+    "type": "Loss Control Request",
+    "status": 1,
+    "created": "05/02/2025"
+  },
+  {
+    "originator": "Michael Thompson",
+    "client": "Coastal Property Management",
+    "line": "Property & Casualty",
+    "type": "Underwriter Referral",
+    "status": 2,
+    "created": "05/05/2025"
+  },
+  {
+    "originator": "Sarah Rodriguez",
+    "client": "TechFlow Solutions",
+    "line": "Professional Indemnity",
+    "type": "Email",
+    "status": 1,
+    "created": "05/08/2025"
+  },
+  {
+    "originator": "David Park",
+    "client": "Metro Construction Group",
+    "line": "Workers Compensation",
+    "type": "Underwriter Referral",
+    "status": 3,
+    "created": "05/03/2025"
+  },
+  {
+    "originator": "Emma Foster",
+    "client": "Pinnacle Consulting Services",
+    "line": "Errors & Omissions",
+    "type": "Loss Control Request",
+    "status": 2,
+    "created": "05/10/2025"
+  },
+  {
+    "originator": "Robert Clarke",
+    "client": "Silverstone Automotive",
+    "line": "Auto Liability",
+    "type": "Email",
+    "status": 1,
+    "created": "05/06/2025"
   }
 ]

@@ -16,7 +16,7 @@ export enum WorkQueueTab {
 }
 
 @Component({
-  selector: 'app-work-queue-component',
+  selector: 'app-work-queue',
   imports: [WorkQueueStatusPipe, WorkQueueStatusClassPipe, NgClass, OriginatorInitialsPipe],
   templateUrl: './work-queue.component.html',
   styleUrls: ['./work-queue.component.scss'],

@@ -6,8 +6,9 @@ $topbar-height: 96px;
 // colors
 $primary-color: #3B82F6;
 $secondary-color: #1E40AF;
-$status-pending-color: #FDD261;
-$status-completed-color: #3BB979;
+$status-danger-color: #CC0101;
+$status-warning-color: #FDD261;
+$status-success-color: #3BB979;
 $button-bg: #0C0F17;
 $border-color: #313B54;
 $card-bg: #1E2233;
@@ -17,17 +18,18 @@ $breakpoint-mobile: 768px; // small devices (landscape phones, 768px and up)
 $breakpoint-tablet: 1024px; // medium devices (tablets, 1024px and up)
 
 // grid
-$grid-columns: 12;
+$grid-columns: 10;
 
 // text
 $text-primary: #E5E7EB;
 $text-secondary: #C5C9D3;
+$text-header: #94A3B8;
+$text-ghost: rgba($text-header, 0.5);
 $fw-normal: 400;
 $fw-medium: 500;
 $fw-semibold: 600;
 $fw-bold: 700;
 
 // table styles
-$table-header-text: #94A3B8;
 $table-header-bg: #252A3D;
 $table-even-row-bg: #232838;

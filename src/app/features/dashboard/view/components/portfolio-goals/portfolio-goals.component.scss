@@ -1,0 +1,25 @@
+@use 'variables' as *;
+
+.portfolio-goal {
+  margin-top: 24px;
+  
+  .goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    
+    .goal-title {
+      color: $text-header;
+      font-size: 14px;
+      font-weight: $fw-medium;
+      text-transform: uppercase;
+    }
+    
+    .goal-target {
+      color: $text-header;  
+      font-size: 14px;
+      font-weight: $fw-medium;
+    }
+  }
+}

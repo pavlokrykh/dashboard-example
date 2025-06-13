@@ -1,0 +1,21 @@
+{
+  "target": 0.55,
+  "current": 0.682,
+  "range": [
+    {
+      "status": 1,
+      "min": 0,
+      "max": 0.5
+    },
+    {
+      "status": 2,
+      "min": 0.5,
+      "max": 0.7
+    },
+    {
+      "status": 3,
+      "min": 0.7,
+      "max": 1
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<div class="card">
+  <span class="card-title">Portfolio goals</span>
+
+  @if ($lossRatioTarget(); as data) {
+    <div class="portfolio-goal">
+      <div class="goal-header">
+        <span class="goal-title">PORTFOLIO LOSS RATIO TARGET</span>
+      </div>
+      
+      <app-status-bar
+        [ranges]="data.range"
+        [current]="data.current"
+        [target]="data.target"
+        [displayValue]="(data.current * 100) | number:'1.1-1'"
+        displaySuffix="%"
+        [targetDisplayValue]="'TG:' + ((data.target * 100) | number:'1.0-0') + '%'"
+        [statusDisplayValue]="data | portfolioLossRatioStatus"
+        [statusColorClass]="data | portfolioLossRatioStatusColor">
+      </app-status-bar>
+    </div>
+  }
+
+  @if ($renewalRetention(); as data) {
+    <div class="portfolio-goal">
+      <div class="goal-header">
+        <span class="goal-title">RENEWAL RETENTION</span>
+      </div>
+      
+      <app-status-bar
+        [ranges]="data.range"
+        [current]="data.current"
+        [target]="getRenewalRetentionTargetPosition(data)"
+        [displayValue]="(data.current * 100) | number:'1.0-0'"
+        displaySuffix="%"
+        [targetDisplayValue]="'TG:' + ((data.targetMin * 100) | number:'1.0-0') + '-' + ((data.targetMax * 100) | number:'1.0-0') + '%'"
+        statusDisplayValue="ON TARGET">
+      </app-status-bar>
+    </div>
+  }
+</div>
