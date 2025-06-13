@@ -48,10 +48,26 @@ module.exports = tseslint.config(
         },
       ],
       
-      "prettier/prettier": "error",
+      "prettier/prettier": ["error", {
+        "trailingComma": "all",
+        "singleQuote": true,
+        "printWidth": 120,
+        "tabWidth": 2
+      }],
       "max-len": ["error", { code: 120 }],
       "quotes": ["error", "single", { "avoidEscape": true }],
       "indent": ["error", 2],
+      "@typescript-eslint/no-restricted-imports": [
+        "error",
+        {
+          "patterns": [
+            {
+              "group": ["../**"],
+              "message": "Relative imports are not allowed. Use path aliases instead."
+            }
+          ]
+        }
+      ],
     },
   },
   {

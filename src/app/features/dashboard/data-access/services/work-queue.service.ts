@@ -1,16 +1,22 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { WorkQueueStore } from '@dashboard/data-access/state/work-queue.store';
+import { Observable, tap } from 'rxjs';
+import { WorkQueueClient } from 'src/app/core/api/dashboard/work-queue.client';
 import { IWorkQueueItem } from 'src/app/core/models/work-queue-item.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class WorkQueueService {
-  private readonly mockUrl = '/mock/mock-work-queue.json';
-  private http = inject(HttpClient);
+  private readonly workQueueClient = inject(WorkQueueClient);
+  private readonly workQueueStore = inject(WorkQueueStore);
 
   getWorkQueue(): Observable<IWorkQueueItem[]> {
-    return this.http.get<IWorkQueueItem[]>(this.mockUrl);
+    this.workQueueStore.setLoading(true);
+    return this.workQueueClient.getWorkQueue().pipe(
+      tap((data) => {
+        console.log('Work Queue Data:', data);
+        this.workQueueStore.updateTasks(data);
+        this.workQueueStore.setLoading(false);
+      }),
+    );
   }
 }

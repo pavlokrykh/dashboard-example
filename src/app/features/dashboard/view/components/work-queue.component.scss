@@ -1,0 +1,48 @@
+@use 'variables' as *;
+@use 'structures/table';
+
+.work-queue-table {
+  // Component-specific styles only
+  
+  .originator-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    
+    .initials {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: #2E5AAC;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: $fw-medium;
+      font-size: 0.875rem;
+    }
+  }
+  
+  .client-info {
+    .client-name {
+      font-weight: $fw-medium;
+      margin-bottom: 0.25rem;
+    }
+    
+    .line-name {
+      font-size: 0.875rem;
+      color: $table-header-text;
+    }
+  }
+  
+  .info-button {
+    @extend .icon-button;
+    
+    .info-icon {
+      font-style: normal;
+      font-weight: $fw-bold;
+      font-size: 0.75rem;
+      color: $table-header-text;
+    }
+  }
+}

@@ -16,6 +16,9 @@
     "module": "preserve",
     "baseUrl": "./",
     "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
       "@dashboard/*": [
         "src/app/features/dashboard/*"
       ],

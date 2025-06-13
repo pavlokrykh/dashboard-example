@@ -1,3 +1,53 @@
 <div class="card">
   <span class="card-title">Work Queue</span>
+  
+  <div class="table-container">
+    <table class="work-queue-table">
+      <thead>
+        <tr>
+          <th>ORIGINATOR</th>
+          <th>CLIENT/LINE</th>
+          <th>TYPE</th>
+          <th>STATUS</th>
+          <th>CREATED</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (task of $tasks(); track $index) {
+          <tr>
+            <td class="originator-column">
+              <div class="originator-info">
+                <div class="initials" [style.background-color]="task.originatorInitials === 'Me' ? '#4B4EFC' : ''">
+                  {{ task.originatorInitials }}
+                </div>
+                <span>{{ task.originator }}</span>
+              </div>
+            </td>
+            <td class="client-column">
+              <div class="client-info">
+                <div class="client-name">{{ task.client }}</div>
+                <div class="line-name">{{ task.line }}</div>
+              </div>
+            </td>
+            <td class="type-column">{{ task.type }}</td>
+            <td class="status-column">
+              <div class="status-badge" 
+                   [class.status-new]="task.status === 'New'"
+                   [class.status-pending]="task.status === 'Pending Review'"
+                   [class.status-completed]="task.status === 'Completed'">
+                {{ task.status }}
+              </div>
+            </td>
+            <td class="created-column">{{ task.created }}</td>
+            <td class="actions-column">
+              <button class="info-button" aria-label="More information">
+                <i class="info-icon">i</i>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>
