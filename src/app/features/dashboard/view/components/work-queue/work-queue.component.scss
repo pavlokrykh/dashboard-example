@@ -15,6 +15,9 @@
 }
 
 .work-queue-table {
+  font-size: 1rem;
+  font-weight: $fw-normal;
+
   .originator-info {
     display: flex;
     align-items: center;
@@ -23,7 +26,6 @@
 
   .client-info {
     .client-name {
-      font-weight: $fw-medium;
       margin-bottom: 0.25rem;
     }
 

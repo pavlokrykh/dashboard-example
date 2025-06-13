@@ -1,0 +1,14 @@
+<div class="progress-bar-container">
+  <div class="progress-bar" [class]="$statusColor()">
+    <div class="progress-fill" [style.width.%]="$percentage()">
+      <span class="current-label">{{ $currentLabel() }}</span>
+    </div>
+    <div class="progress-track">
+      <span class="target-label">{{ $targetLabel() }}</span>
+    </div>
+  </div>  @if ($withPercentage()) {
+    <div class="percentage-display" [style.width.%]="$percentage()">
+      {{ $percentage() | number:'1.0-0' }}%
+    </div>
+  }
+</div>

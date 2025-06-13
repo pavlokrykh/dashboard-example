@@ -19,7 +19,6 @@
       </app-status-bar>
     </div>
   }
-
   @if ($renewalRetention(); as data) {
     <div class="portfolio-goal">
       <div class="goal-header">
@@ -35,6 +34,39 @@
         [targetDisplayValue]="'TG:' + ((data.targetMin * 100) | number:'1.0-0') + '-' + ((data.targetMax * 100) | number:'1.0-0') + '%'"
         statusDisplayValue="ON TARGET">
       </app-status-bar>
+    </div>  }
+
+  @if ($newBusinessTarget(); as data) {
+    <div class="portfolio-goal">
+      <div class="goal-header">
+        <span class="goal-title">NEW BUSINESS TARGET</span>
+      </div>
+      
+      <app-progress-bar
+        withPercentage
+        [target]="data.target"
+        [current]="data.current"
+        [currentLabel]="data.current | currencyFormat"
+        [targetLabel]="data.target | currencyFormat"
+        [statusColor]="StatusColors.Primary">
+      </app-progress-bar>
+    </div>
+  }
+
+  @if ($annualGwpTarget(); as data) {
+    <div class="portfolio-goal">
+      <div class="goal-header">
+        <span class="goal-title">ANNUAL GWP TARGET</span>
+      </div>
+      
+      <app-progress-bar
+        withPercentage
+        [target]="data.target"
+        [current]="data.current"
+        [currentLabel]="data.current | currencyFormat"
+        [targetLabel]="data.target | currencyFormat"
+        [statusColor]="StatusColors.Primary">
+      </app-progress-bar>
     </div>
   }
 </div>

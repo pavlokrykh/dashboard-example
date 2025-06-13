@@ -11,26 +11,26 @@ import {
 export class PortfolioLossRatioStatusPipe implements PipeTransform {
   transform(data: PortfolioLossRatioTarget): string {
     const { current, target } = data;
-    const difference = (current - target) * 100;
+    const difference = ((current - target) * 100).toFixed(1);
 
     // Find which range the current value falls into
     const currentRange = data.range.find((range) => current >= range.min && current < range.max);
 
     if (!currentRange) {
-      return `${difference.toFixed(1)}% (UNKNOWN)`;
+      return `${difference}% (UNKNOWN)`;
     }
 
     const label = PORTFOLIO_GOAL_STATUS_LABELS[currentRange.status];
 
     switch (currentRange.status) {
       case PortfolioGoalStatus.Good:
-        return `${difference.toFixed(1)}% ${label}`;
+        return `${difference}% ${label}`;
       case PortfolioGoalStatus.Acceptable:
-        return `${Math.abs(difference).toFixed(1)}% ${label}`;
+        return `${difference}% ${label}`;
       case PortfolioGoalStatus.Bad:
-        return `${Math.abs(difference).toFixed(1)}% (${label})`;
+        return `${difference}% (${label})`;
       default:
-        return `${difference.toFixed(1)}% (UNKNOWN)`;
+        return `${difference}% (UNKNOWN)`;
     }
   }
 }
