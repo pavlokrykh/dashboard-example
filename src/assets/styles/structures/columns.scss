@@ -32,7 +32,7 @@
 	}
 }
 
-// Desktop breakpoint: screens ≥1024px, using col-*
+// Desktop breakpoint: screens ≥1280px, using col-*
 @media (min-width: $breakpoint-tablet) {
 	@for $i from 1 through $grid-columns {
 		.col-#{$i} {

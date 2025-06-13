@@ -1,5 +1,12 @@
 .dashboard {
-  max-height: 550px;
+  height: 600px;
   display: flex;
   flex-wrap: wrap;
+  
+  > section {
+    flex: 1 1 auto;   // allow grid columns to flex within dashboard
+    min-width: 0;     // enable width shrinking
+    height: 100%;     // fill the 550px parent height
+    min-height: 0;    // enable child overflow to work
+  }
 }
