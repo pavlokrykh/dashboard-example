@@ -9,4 +9,23 @@
     height: 100%;     // fill the 550px parent height
     min-height: 0;    // enable child overflow to work
   }
+
+  .right-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-column-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+
+    app-quick-actions {
+      flex: 1;
+    }
+
+    app-market-intelligence {
+      flex: 1;
+    }
+  }
 }

@@ -7,7 +7,7 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
   standalone: true,
 })
 export class PortfolioGoalStatusClassPipe implements PipeTransform {
-  transform(status: PortfolioGoalStatus): string {
+  transform(status: PortfolioGoalStatus): StatusColors {
     switch (status) {
       case PortfolioGoalStatus.Good:
         return StatusColors.Success;

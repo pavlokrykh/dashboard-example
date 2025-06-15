@@ -18,6 +18,13 @@
     margin-right: 0.375rem;
     flex-shrink: 0; // Prevent the dot from shrinking
   }
+
+  // Large variant for bigger dots
+  &.large::before {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    margin-right: 0.5rem;
+  }
 }
 
 // Pill-style status badge
