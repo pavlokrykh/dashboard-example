@@ -1,0 +1,84 @@
+@use 'variables' as *;
+
+.alert-card {
+  border-radius: 12px;
+  background: $card-bg;
+  border: 1.5px solid $status-warning-color;
+  padding: 1rem 1.5rem;
+  color: $text-primary;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .alert-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .warning-icon {
+      color: $status-warning-color;
+      font-size: 1.2rem;
+    }    .alert-header-title {
+      font-size: 1.5rem;
+      font-weight: $fw-normal;
+      color: $status-warning-color;
+    }
+  }
+
+  .alerts-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .alert-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .alert-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }    &.alert {
+      .alert-title {
+        color: $text-primary;
+        font-weight: $fw-semibold;
+      }
+    }
+
+    &.info {
+      .alert-title {
+        color: $text-primary;
+        font-weight: $fw-medium;
+      }
+    }
+
+    .alert-title {
+      font-size: 0.95rem;
+    }
+
+    .alert-description {
+      font-size: 0.875rem;
+      color: $text-secondary;
+    }
+
+    .alert-action {
+      color: $primary-color;
+      text-decoration: underline;
+      font-size: 0.875rem;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-top: auto;
+
+      &:hover {
+        color: color-mix(in srgb, $primary-color 90%, white 10%);
+      }
+    }
+  }
+}

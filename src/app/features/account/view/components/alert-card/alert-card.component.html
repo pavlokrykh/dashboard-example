@@ -1,0 +1,17 @@
+<div class="alert-card">
+  <div class="alert-header">
+    <span class="warning-icon">⚠</span>
+    <span class="alert-header-title">Needs Attention</span>
+  </div>
+  <div class="alerts-container">
+    @for (alert of $alerts(); track $index) {
+      <div class="alert-item" [class.alert]="alert.type === AlertType.Alert" [class.info]="alert.type === AlertType.Info">
+        <div class="alert-content">
+          <div class="alert-title">{{ alert.title }}</div>
+          <div class="alert-description">{{ alert.description }}</div>
+        </div>
+        <a class="alert-action" href="#">{{ alert.action }}</a>
+      </div>
+    }
+  </div>
+</div>

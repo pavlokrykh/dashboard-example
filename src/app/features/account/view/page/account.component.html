@@ -1,0 +1,71 @@
+<div class="account-details-page">
+  @if ($accountDetails(); as details) {
+    <div class="account-details-main">
+      <!-- Account Summary Section -->
+      <div class="account-summary">        <div class="account-info">
+          <div class="logo-circle">
+            <div class="logo-placeholder">ML</div>
+          </div>
+          <div class="company-info">
+            <h2>Maritime Logistics Corp</h2>
+            <div class="address-info">
+              <span>425 Harbor Boulevard, Suite 300</span>
+              <span>Seattle, WA 98104</span>
+            </div>
+          </div>
+          <div class="account-details-block">
+            <div class="account-detail">
+              <div class="detail-title">EXISTING ACCOUNT</div>
+              <div class="detail-value">54383</div>
+            </div>
+            <div class="account-detail">
+              <div class="detail-title">BROKER</div>
+              <div class="detail-value">Marsh McLennan</div>
+            </div>
+            <div class="account-detail">
+              <div class="detail-title">UNDERWRITER</div>
+              <div class="detail-value">Kate Johnson</div>
+            </div>
+          </div>
+        </div>        <!-- Needs Attention Section -->
+        @if (details.details.length) {
+          <div class="needs-attention">
+            <app-alert-card [alerts]="details.details" />
+          </div>
+        }
+      </div>
+
+      <!-- Performance Metrics Section -->
+      @if (details.performanceMetrics.length) {
+        <div class="performance-metrics">
+          <h3>Performance Metrics</h3>
+          <div class="metrics-grid">
+            @for (metric of details.performanceMetrics; track $index) {
+              <app-metric-card [metric]="metric" />
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Policies Section -->
+      @if (details.policies.length) {
+        <div class="policies-section">
+          <h3>Policies</h3>
+          <div class="policies-list">
+            @for (policy of details.policies; track $index) {
+              <app-policy-card [policy]="policy" />
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Account Status Section -->
+      @if (details.accountStatus.length) {
+        <div class="account-status-section">
+          <h3>Account Status</h3>
+          <app-account-status-progress [steps]="details.accountStatus" />
+        </div>
+      }
+    </div>
+  }
+</div>

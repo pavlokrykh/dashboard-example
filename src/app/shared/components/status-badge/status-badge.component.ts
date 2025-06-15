@@ -19,7 +19,14 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
         {{ $text() }}
       </span>
     } @else {
-      <span class="status-badge" [ngClass]="[$statusClass(), $large() ? 'large' : '']">
+      <span class="status-badge" [ngClass]="[$statusClass(), $large() ? 'large' : '', $dots() ? 'has-dots' : '']">
+        @if ($dots(); as dots) {
+          <span class="badge-dots">
+            @for (dot of $dotArray(); track $index) {
+              <span class="dot"></span>
+            }
+          </span>
+        }
         {{ $text() }}
       </span>
     }

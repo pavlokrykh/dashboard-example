@@ -1,3 +1,5 @@
+import { Winnability } from '@shared/enums/winnability.enum';
+
 export enum Appetite {
   High = 1,
   Medium = 2,
@@ -7,13 +9,6 @@ export enum Appetite {
 export enum Status {
   Active = 1,
   Review = 2,
-}
-
-export enum Winnability {
-  NotLikely = 1,
-  Medium = 2,
-  Strong = 3,
-  VeryStrong = 4,
 }
 
 export interface IAccountListItem {

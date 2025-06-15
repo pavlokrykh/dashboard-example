@@ -1,0 +1,93 @@
+@use 'variables' as *;
+
+.account-status-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  .status-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+
+    .step-indicator {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $secondary-darker;
+      border: 2px solid $border-color;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+
+      .checkmark {
+        color: white;
+        font-weight: $fw-bold;
+        font-size: 1.1rem;
+      }
+
+      .step-number {
+        color: $text-secondary;
+        font-weight: $fw-medium;
+        font-size: 0.875rem;
+      }
+    }
+
+    .step-label {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      text-align: center;
+      font-weight: $fw-medium;
+    }
+
+    .step-connector {
+      position: absolute;
+      top: 20px;
+      left: calc(50% + 20px);
+      right: calc(-50% + 20px);
+      height: 2px;
+      background: $border-color;
+      z-index: 1;
+
+      &.completed {
+        background: $status-success-color;
+      }
+    }
+
+    &.completed {
+      .step-indicator {
+        background: $status-success-color;
+        border-color: $status-success-color;
+      }
+
+      .step-label {
+        color: $text-primary;
+      }
+    }
+
+    &.current {
+      .step-indicator {
+        background: $primary-color;
+        border-color: $primary-color;
+
+        .step-number {
+          color: white;
+        }
+      }
+
+      .step-label {
+        color: $primary-color;
+        font-weight: $fw-semibold;
+      }
+    }
+
+    &:last-child .step-connector {
+      display: none;
+    }
+  }
+}

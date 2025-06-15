@@ -12,4 +12,9 @@ export const routes: Routes = [
     resolve: [loginResolver],
     loadComponent: () => import('@dashboard/view//page/dashboard.component').then((m) => m.DashboardComponent),
   },
+  {
+    path: 'account',
+    resolve: [loginResolver],
+    loadComponent: () => import('@account/view/page/account.component').then((m) => m.AccountComponent),
+  },
 ];

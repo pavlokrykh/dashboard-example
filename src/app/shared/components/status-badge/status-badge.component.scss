@@ -25,6 +25,44 @@
     height: 0.75rem !important;
     margin-right: 0.5rem;
   }
+  // When has-dots class is present, don't show the ::before pseudo-element
+  &.has-dots {
+    &::before {
+      display: none;
+    }
+  }
+
+  // Status colors for regular badges (applied to text color so currentColor works on dots)
+  &.status-success {
+    color: $status-success-color;
+  }
+  &.status-warning {
+    color: $status-warning-color;
+  }
+  &.status-danger {
+    color: $status-danger-color;
+  }
+  &.status-primary {
+    color: $primary-color;
+  }
+  &.status-secondary-darker {
+    color: $secondary-color;
+  }
+
+  .badge-dots {
+    display: inline-flex;
+    gap: 2px;
+    margin-right: 0.5rem;
+    
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 1;
+      flex-shrink: 0;
+    }
+  }
 }
 
 // Pill-style status badge

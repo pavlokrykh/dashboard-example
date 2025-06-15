@@ -1,0 +1,88 @@
+{
+  "details": [
+    {
+      "type": "alert",
+      "title": "Marine Survey Required",
+      "description": "Scheduled for 06/12/2025",
+      "action": "Review details link →"
+    },
+    {
+      "type": "info",
+      "title": "Loss Control Complete",
+      "description": "Last inspection: 02/15/2025",
+      "action": "View report →"
+    },
+    {
+      "type": "alert",
+      "title": "Claims Review Required",
+      "description": "3 open claims // $245,000 TTL",
+      "action": "View claims →"
+    }
+  ],  "performanceMetrics": [
+    {
+      "label": "Winnability",
+      "value": 4,
+      "type": "text",
+      "link": "See all factors →",
+      "winnability": 4
+    },
+    {
+      "label": "Loss Ratio",
+      "value": 25,
+      "target": "42% target",
+      "type": "percent",
+      "link": "View history →"
+    },
+    {
+      "label": "Premium Growth",
+      "value": 12.4,
+      "target": "YoY increase",
+      "description": "$123M vs $150M Target",
+      "type": "percent",
+      "link": "View trend →"
+    },
+    {
+      "label": "Exposure Distribution",
+      "type": "distribution",
+      "distribution": [
+        { "name": "Marine Cargo", "value": 71.4 },
+        { "name": "General Liability", "value": 20.0 },
+        { "name": "Workers Comp", "value": 8.6 }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "type": "General Liability",
+      "premium": 625000,
+      "effDate": "6/30/2026"
+    },
+    {
+      "type": "General Liability", 
+      "premium": 175000,
+      "effDate": "6/30/2026"
+    },
+    {
+      "type": "Workers Compensation",
+      "premium": 75000,
+      "effDate": null
+    },
+    {
+      "type": "Commercial Property",
+      "premium": 64829.83,
+      "effDate": null
+    },
+    {
+      "type": "Umbrella",
+      "premium": 275000,
+      "effDate": "13/03/2026"
+    }
+  ],
+  "accountStatus": [
+    { "step": "Renewal meeting", "completed": true },
+    { "step": "Renewal terms", "completed": true },
+    { "step": "Proposal review", "completed": true },
+    { "step": "Final negotiation", "completed": true },
+    { "step": "Closing", "completed": false }
+  ]
+}

@@ -1,0 +1,146 @@
+@use 'variables' as *;
+
+.account-details-page {
+  background: $body-bg;
+  color: $text-primary;
+  min-height: 100vh;
+
+  .account-details-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .account-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  .account-info {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    gap: 1.5rem;
+    flex: 1;
+
+    .logo-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: $card-bg;
+      border: 1px solid $border-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      .logo-placeholder {
+        font-size: 1.5rem;
+        font-weight: $fw-bold;
+        color: $primary-color;
+      }
+    }
+
+    .company-info {
+      flex: 1;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: $fw-semibold;
+        color: $text-primary;
+        margin: 0 0 0.5rem 0;
+      }
+
+      .address-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        span {
+          font-size: 0.95rem;
+          color: $text-secondary;
+        }
+      }
+    }    .account-details-block {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      margin-left: auto;
+
+      .account-detail {
+        text-align: right;
+
+        .detail-title {
+          font-size: 0.75rem;
+          font-weight: $fw-semibold;
+          color: $text-header;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+          font-size: 0.875rem;
+          font-weight: $fw-medium;
+          color: $text-primary;
+        }
+      }
+    }
+  }  .needs-attention {
+    min-width: 600px;
+    max-width: 800px;
+  }
+  .performance-metrics {
+    h3 {
+      font-size: 2rem;
+      font-weight: $fw-semibold;
+      color: $text-primary;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  .policies-section {
+    h3 {
+      font-size: 1.25rem;
+      font-weight: $fw-semibold;
+      color: $text-primary;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .policies-list {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+    }
+  }
+
+  .account-status-section {
+    h3 {
+      font-size: 1.25rem;
+      font-weight: $fw-semibold;
+      color: $text-primary;
+      margin: 0 0 1.5rem 0;
+    }
+  }
+}

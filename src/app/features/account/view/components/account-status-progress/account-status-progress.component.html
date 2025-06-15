@@ -1,0 +1,21 @@
+<div class="account-status-progress">
+  @for (step of $steps(); track $index) {
+    <div
+      class="status-step"
+      [class.completed]="step.completed"
+      [class.current]="!step.completed && isCurrentStep($index)"
+    >
+      <div class="step-indicator">
+        @if (step.completed) {
+          <span class="checkmark">✓</span>
+        } @else {
+          <span class="step-number">{{ $index + 1 }}</span>
+        }
+      </div>
+      <div class="step-label">{{ step.step }}</div>
+      @if ($index < $steps().length - 1) {
+        <div class="step-connector" [class.completed]="step.completed"></div>
+      }
+    </div>
+  }
+</div>

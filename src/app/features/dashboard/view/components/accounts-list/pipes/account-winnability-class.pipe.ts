@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Winnability } from '@core/models/dashboard/accounts-list.model';
 import { StatusColors } from '@shared/enums/status-colors.enum';
+import { Winnability } from '@shared/enums/winnability.enum';
 
 @Pipe({
   name: 'accountWinnabilityClass',

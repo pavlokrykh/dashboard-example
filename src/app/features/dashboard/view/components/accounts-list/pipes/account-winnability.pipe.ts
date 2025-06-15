@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Winnability } from '@core/models/dashboard/accounts-list.model';
+import { Winnability } from '@shared/enums/winnability.enum';
 
 @Pipe({
   name: 'accountWinnability',
