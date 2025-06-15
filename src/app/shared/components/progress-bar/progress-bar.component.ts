@@ -15,6 +15,7 @@ export class ProgressBarComponent {
   $currentLabel = input<string | null>(null, { alias: 'currentLabel' });
   $statusColor = input<StatusColors>(StatusColors.Primary, { alias: 'statusColor' });
   $withPercentage = input(false, { alias: 'withPercentage', transform: booleanAttribute });
+  $small = input(false, { alias: 'small', transform: booleanAttribute });
 
   // Calculate the percentage of current value relative to target
   $percentage = computed(() => {
