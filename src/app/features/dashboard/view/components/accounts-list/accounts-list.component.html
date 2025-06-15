@@ -38,21 +38,24 @@
             <td>{{ account.broker }}</td>
             <td>{{ account.renewalDate }}</td>
             <td class="premium-cell">{{ account.premium | currencyFormat }}</td>
-            <td class="rated-premium-cell">{{ account.ratedPremium | currencyFormat }}</td>
-            <td class="loss-ratio-column">
-              <span class="pill-badge" [ngClass]="account.lossRatio | lossRatioClass">
-                {{ account.lossRatio | percent:'1.0-0' }}
-              </span>
-            </td>
-            <td class="appetite-column">
-              <span class="pill-badge">
-                {{ account.appetite | accountAppetite }}
-              </span>
+            <td class="rated-premium-cell">{{ account.ratedPremium | currencyFormat }}</td>            <td class="loss-ratio-column">
+              <app-status-badge 
+                pill
+                [text]="(account.lossRatio | percent:'1.0-0') || '0%'"
+                [statusClass]="account.lossRatio | lossRatioClass">
+              </app-status-badge>
+            </td>            <td class="appetite-column">
+              <app-status-badge 
+                pill
+                [text]="account.appetite | accountAppetite"
+                [statusClass]="StatusColors.SecondaryDarker">
+              </app-status-badge>
             </td>
             <td class="status-column">
-              <span class="status-badge" [ngClass]="account.status | accountStatusClass">
-                {{ account.status | accountStatus }}
-              </span>
+              <app-status-badge 
+                [text]="account.status | accountStatus"
+                [statusClass]="account.status | accountStatusClass">
+              </app-status-badge>
             </td>
             <td class="triage-cell">
               <span class="triage-badge">{{ account.triage }}</span>

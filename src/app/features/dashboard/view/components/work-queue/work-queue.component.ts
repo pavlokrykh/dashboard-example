@@ -1,9 +1,9 @@
-import { NgClass } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TaskType, WorkQueueStatus } from '@core/models/dashboard/work-queue-item.model';
 import { WorkQueueService } from '@dashboard/data-access/services/work-queue.service';
 import { ProfileCircleComponent } from '@shared/components/profile-circle/profile-circle.component';
+import { StatusBadgeComponent } from '@shared/components/status-badge/status-badge.component';
 import { useRouteFragment } from '@shared/utils/route-fragment.util';
 import { WorkQueueStatusClassPipe } from './pipes/work-queue-status-class.pipe';
 import { WorkQueueStatusPipe } from './pipes/work-queue-status.pipe';
@@ -16,7 +16,7 @@ export enum WorkQueueTab {
 
 @Component({
   selector: 'app-work-queue',
-  imports: [ProfileCircleComponent, NgClass, WorkQueueStatusPipe, WorkQueueStatusClassPipe],
+  imports: [ProfileCircleComponent, WorkQueueStatusPipe, WorkQueueStatusClassPipe, StatusBadgeComponent],
   templateUrl: './work-queue.component.html',
   styleUrls: ['./work-queue.component.scss'],
   providers: [WorkQueueService],

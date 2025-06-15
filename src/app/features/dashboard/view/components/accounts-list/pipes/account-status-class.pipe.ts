@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Status } from '@core/models/dashboard/accounts-list.model';
+import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({
   name: 'accountStatusClass',
@@ -9,9 +10,9 @@ export class AccountStatusClassPipe implements PipeTransform {
   transform(status: Status): string {
     switch (status) {
       case Status.Active:
-        return 'status-completed';
+        return StatusColors.Success;
       case Status.Review:
-        return 'status-pending';
+        return StatusColors.Warning;
       default:
         return '';
     }

@@ -40,11 +40,11 @@
                 <div class="line-name">{{ task.line }}</div>
               </div>
             </td>
-            <td class="type-column">{{ task.type }}</td>
-            <td class="status-column">
-              <div class="status-badge" [ngClass]="task.status | workQueueStatusClass">
-                {{ task.status | workQueueStatus }}
-              </div>
+            <td class="type-column">{{ task.type }}</td>            <td class="status-column">
+              <app-status-badge 
+                [text]="task.status | workQueueStatus"
+                [statusClass]="task.status | workQueueStatusClass">
+              </app-status-badge>
             </td>
             <td class="created-column">{{ task.created }}</td>
             <!-- TODO: action -->

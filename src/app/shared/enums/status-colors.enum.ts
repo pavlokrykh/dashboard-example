@@ -3,4 +3,5 @@ export enum StatusColors {
   Warning = 'status-warning',
   Danger = 'status-danger',
   Primary = 'status-primary',
+  SecondaryDarker = 'status-secondary-darker',
 }

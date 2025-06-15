@@ -12,7 +12,7 @@ export class ProgressBarComponent {
   $target = input.required<number>({ alias: 'target' });
   $current = input.required<number>({ alias: 'current' });
   $targetLabel = input.required<string>({ alias: 'targetLabel' });
-  $currentLabel = input.required<string>({ alias: 'currentLabel' });
+  $currentLabel = input<string | null>(null, { alias: 'currentLabel' });
   $statusColor = input<StatusColors>(StatusColors.Primary, { alias: 'statusColor' });
   $withPercentage = input(false, { alias: 'withPercentage', transform: booleanAttribute });
 

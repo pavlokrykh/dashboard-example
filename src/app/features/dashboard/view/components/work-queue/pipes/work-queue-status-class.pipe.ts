@@ -1,11 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { WorkQueueStatus } from '@core/models/dashboard/work-queue-item.model';
-
-export enum TaskStatusClass {
-  New = 'status-new',
-  Pending = 'status-pending',
-  Completed = 'status-completed',
-}
+import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({
   name: 'workQueueStatusClass',
@@ -15,11 +10,11 @@ export class WorkQueueStatusClassPipe implements PipeTransform {
   transform(status: WorkQueueStatus): string {
     switch (status) {
       case WorkQueueStatus.New:
-        return TaskStatusClass.New;
+        return StatusColors.Primary;
       case WorkQueueStatus.Pending:
-        return TaskStatusClass.Pending;
+        return StatusColors.Warning;
       case WorkQueueStatus.Completed:
-        return TaskStatusClass.Completed;
+        return StatusColors.Success;
       default:
         return '';
     }

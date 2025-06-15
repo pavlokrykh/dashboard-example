@@ -7,14 +7,17 @@ table {
     &.name-column, &.account-name-cell {
       width: 16%;
     }
+    &.appetite-column {
+      width: 10%;
+    }
     &.line-column, &.broker-column, &.date-column, &.rated-premium-column, &.status-column {
       width: 9%;
     }
-    &.premium-column, &.loss-ratio-column, &.appetite-column {
+    &.premium-column, &.loss-ratio-column {
       width: 7%;
     }
     &.triage-column {
-      width: 5%;
+      width: 6%;
     }
     &.winnability-column {
       width: 10%;
@@ -45,30 +48,6 @@ table {
 
 .premium-cell, .rated-premium-cell {
   text-align: right;
-}
-
-// Pill badge for status, loss ratio, etc.
-.pill-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 1rem;
-  border-radius: 1rem;
-  font-size: 0.75rem;
-  font-weight: $fw-semibold;
-  color: white;
-  width: auto;
-
-  &.status-warning {
-    color: black;
-  }
-}
-
-.appetite-column {
-  .pill-badge {
-    color: $text-primary;
-    background-color: rgba($secondary-color, 0.3);
-  }
 }
 
 // Triage badge styles
@@ -149,21 +128,13 @@ table {
     overflow: visible;
     text-overflow: clip;
   }
-  
-  // Status and appetite columns should also center their badges
+    // Status and appetite columns should also center their badges
   .status-column, .appetite-column {
     white-space: normal;
     overflow: visible;
     text-overflow: clip;
   }
   
-  // All pill badges should be centered
-  .pill-badge {
-    display: inline-flex;
-    text-align: center;
-    justify-content: center;
-    margin: 0 auto;
-  }
   // Add subtle border between rows
   tr {
     border-bottom: 1px solid $border-color;

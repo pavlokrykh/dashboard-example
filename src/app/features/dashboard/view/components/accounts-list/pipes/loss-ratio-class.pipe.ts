@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({
   name: 'lossRatioClass',
@@ -6,8 +7,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class LossRatioClassPipe implements PipeTransform {
   transform(lossRatio: number): string {
-    if (lossRatio <= 0.3) return 'status-success';
-    if (lossRatio <= 0.5) return 'status-warning';
-    return 'status-danger';
+    if (lossRatio <= 0.35) return StatusColors.Success;
+    if (lossRatio <= 0.5) return StatusColors.Warning;
+    return StatusColors.Danger;
   }
 }
