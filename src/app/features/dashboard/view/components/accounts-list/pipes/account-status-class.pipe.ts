@@ -7,14 +7,14 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
   standalone: true,
 })
 export class AccountStatusClassPipe implements PipeTransform {
-  transform(status: Status): StatusColors | '' {
+  transform(status: Status): StatusColors {
     switch (status) {
       case Status.Active:
         return StatusColors.Success;
       case Status.Review:
         return StatusColors.Warning;
       default:
-        return '';
+        return StatusColors.SecondaryDarker;
     }
   }
 }

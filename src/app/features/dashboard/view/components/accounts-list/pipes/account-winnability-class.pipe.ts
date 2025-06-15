@@ -1,23 +1,24 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Winnability } from '@core/models/dashboard/accounts-list.model';
+import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({
   name: 'accountWinnabilityClass',
   standalone: true,
 })
 export class AccountWinnabilityClassPipe implements PipeTransform {
-  transform(winnability: Winnability): string {
+  transform(winnability: Winnability): StatusColors {
     switch (winnability) {
       case Winnability.NotLikely:
-        return 'winnability-not-likely';
+        return StatusColors.Danger;
       case Winnability.Medium:
-        return 'winnability-medium';
+        return StatusColors.Warning;
       case Winnability.Strong:
-        return 'winnability-strong';
+        return StatusColors.Primary;
       case Winnability.VeryStrong:
-        return 'winnability-very-strong';
+        return StatusColors.Success;
       default:
-        return '';
+        return StatusColors.SecondaryDarker;
     }
   }
 }

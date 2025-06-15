@@ -7,7 +7,7 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
   standalone: true,
 })
 export class WorkQueueStatusClassPipe implements PipeTransform {
-  transform(status: WorkQueueStatus): StatusColors | '' {
+  transform(status: WorkQueueStatus): StatusColors {
     switch (status) {
       case WorkQueueStatus.New:
         return StatusColors.Primary;
@@ -16,7 +16,7 @@ export class WorkQueueStatusClassPipe implements PipeTransform {
       case WorkQueueStatus.Completed:
         return StatusColors.Success;
       default:
-        return '';
+        return StatusColors.SecondaryDarker;
     }
   }
 }

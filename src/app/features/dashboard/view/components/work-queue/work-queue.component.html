@@ -40,7 +40,8 @@
                 <div class="line-name">{{ task.line }}</div>
               </div>
             </td>
-            <td class="type-column">{{ task.type }}</td>            <td class="status-column">
+            <td class="type-column">{{ task.type }}</td>
+            <td class="status-column">
               <app-status-badge 
                 [text]="task.status | workQueueStatus"
                 [statusClass]="task.status | workQueueStatusClass">

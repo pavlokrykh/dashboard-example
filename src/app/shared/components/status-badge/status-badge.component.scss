@@ -38,8 +38,22 @@
   font-weight: $fw-semibold;
   color: white;
   width: auto;
-  white-space: normal;
-  text-wrap: wrap;
+  white-space: nowrap;
+  text-wrap: nowrap;
+
+  .badge-dots {
+    display: inline-flex;
+    gap: 2px;
+    margin-right: 0.5rem;
+      .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 1;
+      flex-shrink: 0;
+    }
+  }
 
   // Special handling for warning status - black text on orange background
   &.status-warning {
@@ -49,5 +63,35 @@
   // Special handling for secondary darker - darker text on darker background
   &.status-secondary-darker {
     color: $text-primary;
+  }
+  // Outlined pill variant
+  &.outlined {
+    background: transparent;
+    border: 2px solid currentColor;
+    color: $primary-color;
+    font-weight: $fw-semibold;
+    padding: 0.125rem 0.75rem; // Reduced padding for better table fit
+
+    // Status color overrides for outlined
+    &.status-success {
+      color: $status-success-color;
+      border-color: $status-success-color;
+    }
+    &.status-warning {
+      color: $status-warning-color;
+      border-color: $status-warning-color;
+    }
+    &.status-danger {
+      color: $status-danger-color;
+      border-color: $status-danger-color;
+    }
+    &.status-primary {
+      color: $primary-color;
+      border-color: $primary-color;
+    }
+    &.status-secondary-darker {
+      color: $secondary-color;
+      border-color: $secondary-color;
+    }
   }
 }

@@ -1,11 +1,10 @@
-<div class="card">
-  <span class="card-title">
+<div class="card">  <span class="card-title">
     My accounts
     <div class="actions">
-      <button class="btn-tab">Filter</button>
-      <button class="btn-tab">Sort</button>
-      <button class="btn-tab">Group</button>
-      <button class="btn-tab active">+ New</button>
+      <button class="btn-outlined">Filter</button>
+      <button class="btn-outlined">Sort</button>
+      <button class="btn-outlined">Group</button>
+      <button class="btn-outlined active">+ New</button>
     </div>
   </span>
   
@@ -38,14 +37,16 @@
             <td>{{ account.broker }}</td>
             <td>{{ account.renewalDate }}</td>
             <td class="premium-cell">{{ account.premium | currencyFormat }}</td>
-            <td class="rated-premium-cell">{{ account.ratedPremium | currencyFormat }}</td>            <td class="loss-ratio-column">
+            <td class="rated-premium-cell">{{ account.ratedPremium | currencyFormat }}</td>
+            <td class="loss-ratio-column">
               <app-status-badge 
                 pill
                 [text]="(account.lossRatio | percent:'1.0-0') || '0%'"
                 [statusClass]="account.lossRatio | lossRatioClass">
               </app-status-badge>
-            </td>            <td class="appetite-column">
-              <app-status-badge 
+            </td>
+            <td class="appetite-column">
+              <app-status-badge
                 pill
                 [text]="account.appetite | accountAppetite"
                 [statusClass]="StatusColors.SecondaryDarker">
@@ -56,20 +57,22 @@
                 [text]="account.status | accountStatus"
                 [statusClass]="account.status | accountStatusClass">
               </app-status-badge>
+            </td>            <td class="triage-cell">
+              <app-status-badge 
+                pill 
+                outlined 
+                [text]="account.triage.toString()" 
+                [statusClass]="StatusColors.Primary">
+              </app-status-badge>
             </td>
-            <td class="triage-cell">
-              <span class="triage-badge">{{ account.triage }}</span>
-            </td>
-            <td>
-              <div class="winnability-rating">
-                <div class="winnability-dots" [class]="account.winnability | accountWinnabilityClass">
-                  <span class="dot" [class.active]="account.winnability >= 1"></span>
-                  <span class="dot" [class.active]="account.winnability >= 2"></span>
-                  <span class="dot" [class.active]="account.winnability >= 3"></span>
-                  <span class="dot" [class.active]="account.winnability >= 4"></span>
-                </div>
-                <span class="winnability-text">{{ account.winnability | accountWinnability }}</span>
-              </div>
+            <td class="winnability-column">
+              <app-status-badge 
+                pill 
+                outlined 
+                [dots]="account.winnability"
+                [text]="account.winnability | accountWinnability" 
+                [statusClass]="account.winnability | accountWinnabilityClass">
+              </app-status-badge>
             </td>
             <td class="actions-column">
               <button class="icon-button" aria-label="More information">

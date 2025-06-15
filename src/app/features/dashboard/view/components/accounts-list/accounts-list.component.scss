@@ -7,20 +7,24 @@ table {
     &.name-column, &.account-name-cell {
       width: 16%;
     }
-    &.appetite-column {
+    &.rated-premium-column {
+      width: 10%;
+      text-align: right;
+    }
+    &.appetite-column, &.date-column {
       width: 10%;
     }
-    &.line-column, &.broker-column, &.date-column, &.rated-premium-column, &.status-column {
-      width: 9%;
+    &.line-column, &.broker-column, &.status-column, &.loss-ratio-column {
+      width: 8%;
     }
-    &.premium-column, &.loss-ratio-column {
+    &.premium-column {
       width: 7%;
     }
     &.triage-column {
       width: 6%;
     }
     &.winnability-column {
-      width: 10%;
+      width: 13%;
     }
   }
 }
@@ -48,65 +52,6 @@ table {
 
 .premium-cell, .rated-premium-cell {
   text-align: right;
-}
-
-// Triage badge styles
-.triage-badge {
-  display: inline-block;
-  min-width: 2rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
-  text-align: center;
-  background-color: $primary-color;
-  color: white;
-  border-radius: 4px;
-  font-weight: $fw-semibold;
-  font-size: 0.75rem;
-  padding: 0 0.25rem;
-}
-
-// Winnability rating styles
-.winnability-rating {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.winnability-dots {
-  display: flex;
-  gap: 2px;
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: $border-color;
-
-    &.active {
-      background-color: $primary-color;
-    }
-  }
-
-  &.winnability-not-likely .dot.active {
-    background-color: $status-danger-color;
-  }
-
-  &.winnability-medium .dot.active {
-    background-color: $status-warning-color;
-  }
-
-  &.winnability-strong .dot.active {
-    background-color: $primary-color;
-  }
-
-  &.winnability-very-strong .dot.active {
-    background-color: $status-success-color;
-  }
-}
-
-.winnability-text {
-  font-size: 0.75rem;
-  color: $text-secondary;
 }
 
 // Additional specific styles for accounts table

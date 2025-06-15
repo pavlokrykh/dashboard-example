@@ -6,7 +6,7 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
   standalone: true,
 })
 export class LossRatioClassPipe implements PipeTransform {
-  transform(lossRatio: number): string {
+  transform(lossRatio: number): StatusColors {
     if (lossRatio <= 0.35) return StatusColors.Success;
     if (lossRatio <= 0.5) return StatusColors.Warning;
     return StatusColors.Danger;
