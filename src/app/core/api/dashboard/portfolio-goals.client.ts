@@ -5,7 +5,7 @@ import {
   NewBusinessTarget,
   PortfolioLossRatioTarget,
   RenewalRetention,
-} from '@core/models/portfolio-goals.model';
+} from '@core/models/dashboard/portfolio-goals.model';
 import { Observable } from 'rxjs';
 
 @Injectable({

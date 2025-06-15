@@ -1,6 +1,6 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
-import { PortfolioGoalRange } from '@core/models/portfolio-goals.model';
+import { PortfolioGoalRange } from '@core/models/dashboard/portfolio-goals.model';
 import { PortfolioGoalStatusClassPipe } from './pipes/portfolio-goal-status-class.pipe';
 
 @Component({

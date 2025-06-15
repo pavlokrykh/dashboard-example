@@ -1,0 +1,135 @@
+@use 'variables' as *;
+
+// General table styles
+.table-container {
+  margin-top: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  th, td {
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  }
+  th > *:not(.status-badge), td > *:not(.status-badge) {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  // Exclude status badges from truncation
+  .status-badge {
+    display: inline-flex;
+    width: auto;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  thead {
+    background-color: $table-header-bg;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    font-weight: $fw-semibold;
+    color: $text-header;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid $border-color;
+    vertical-align: middle;
+    height: 60px;
+    line-height: 20px;
+    max-height: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+  }
+
+  td.status-column {
+    overflow: visible;
+    white-space: normal;
+  }
+  tbody tr {
+    border-bottom: 1px solid $border-color;
+    height: 60px;
+    max-height: 60px;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    &:nth-child(even) {
+      background-color: $table-even-row-bg;
+    }
+  }
+}
+
+// Common status badge styles
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 0.5rem !important;
+    height: 0.5rem !important;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin-right: 0.375rem;
+  }
+}
+
+// Common action button styles for tables
+.icon-button {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid $border-color;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 auto;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .info-icon {
+    font-style: normal;
+    font-weight: $fw-bold;
+    font-size: 0.75rem;
+    color: $text-header;
+  }
+}
+
+// Actions column should have consistent width and center alignment
+.actions-column {
+  width: 64px;
+  min-width: 64px;
+  max-width: 64px;
+  text-align: center;
+}

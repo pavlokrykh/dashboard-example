@@ -1,5 +1,5 @@
 import { computed } from '@angular/core';
-import { IWorkQueueItem } from '@core/models/work-queue-item.model';
+import { IWorkQueueItem } from '@core/models/dashboard/work-queue-item.model';
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 
 interface IWorkQueueStore {

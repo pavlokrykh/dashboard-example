@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { WorkQueueStatus } from '@core/models/work-queue-item.model';
+import { WorkQueueStatus } from '@core/models/dashboard/work-queue-item.model';
 
 export enum TaskStatusClass {
   New = 'status-new',

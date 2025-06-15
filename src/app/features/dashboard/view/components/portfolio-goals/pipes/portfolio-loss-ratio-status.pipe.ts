@@ -3,7 +3,7 @@ import {
   PORTFOLIO_GOAL_STATUS_LABELS,
   PortfolioGoalStatus,
   PortfolioLossRatioTarget,
-} from '@core/models/portfolio-goals.model';
+} from '@core/models/dashboard/portfolio-goals.model';
 
 @Pipe({
   name: 'portfolioLossRatioStatus',

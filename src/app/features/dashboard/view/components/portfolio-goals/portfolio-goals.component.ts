@@ -6,7 +6,7 @@ import {
   NewBusinessTarget,
   PortfolioLossRatioTarget,
   RenewalRetention,
-} from '@core/models/portfolio-goals.model';
+} from '@core/models/dashboard/portfolio-goals.model';
 import { PortfolioGoalsService } from '@dashboard/data-access/services/portfolio-goals.service';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 import { StatusBarComponent } from '@shared/components/status-bar/status-bar.component';

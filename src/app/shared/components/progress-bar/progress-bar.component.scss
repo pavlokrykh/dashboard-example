@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as *;
 
 .progress-bar-container {
   width: 100%;

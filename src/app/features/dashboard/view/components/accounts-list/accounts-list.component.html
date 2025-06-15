@@ -1,0 +1,81 @@
+<div class="card">
+  <span class="card-title">
+    My accounts
+    <div class="actions">
+      <button class="btn-tab">Filter</button>
+      <button class="btn-tab">Sort</button>
+      <button class="btn-tab">Group</button>
+      <button class="btn-tab active">+ New</button>
+    </div>
+  </span>
+  
+  <div class="table-container">
+    <table class="accounts-table">
+      <thead>
+        <tr>
+          <th class="name-column">ACCOUNT NAME/TYPE</th>
+          <th class="line-column">LINE</th>
+          <th class="broker-column">BROKER</th>
+          <th class="date-column">RENEWAL DATE</th>
+          <th class="premium-column">PREMIUM</th>
+          <th class="rated-premium-column">RATED PREMIUM</th>
+          <th class="loss-ratio-column">LOSS RATIO</th>
+          <th class="appetite-column">APPETITE</th>
+          <th class="status-column">STATUS</th>
+          <th class="triage-column">TRIAGE</th>
+          <th class="winnability-column">WINNABILITY</th>
+          <th class="actions-column"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (account of $accountsList(); track account.id) {
+          <tr>
+            <td class="account-name-cell">
+              <div class="account-name">{{ account.accountName }}</div>
+              <div class="account-type">{{ account.accountType }}</div>
+            </td>
+            <td>{{ account.line }}</td>
+            <td>{{ account.broker }}</td>
+            <td>{{ account.renewalDate }}</td>
+            <td class="premium-cell">{{ account.premium | currencyFormat }}</td>
+            <td class="rated-premium-cell">{{ account.ratedPremium | currencyFormat }}</td>
+            <td class="loss-ratio-column">
+              <span class="pill-badge" [ngClass]="account.lossRatio | lossRatioClass">
+                {{ account.lossRatio | percent:'1.0-0' }}
+              </span>
+            </td>
+            <td class="appetite-column">
+              <span class="pill-badge">
+                {{ account.appetite | accountAppetite }}
+              </span>
+            </td>
+            <td class="status-column">
+              <span class="status-badge" [ngClass]="account.status | accountStatusClass">
+                {{ account.status | accountStatus }}
+              </span>
+            </td>
+            <td class="triage-cell">
+              <span class="triage-badge">{{ account.triage }}</span>
+            </td>
+            <td>
+              <div class="winnability-rating">
+                <div class="winnability-dots" [class]="account.winnability | accountWinnabilityClass">
+                  <span class="dot" [class.active]="account.winnability >= 1"></span>
+                  <span class="dot" [class.active]="account.winnability >= 2"></span>
+                  <span class="dot" [class.active]="account.winnability >= 3"></span>
+                  <span class="dot" [class.active]="account.winnability >= 4"></span>
+                </div>
+                <span class="winnability-text">{{ account.winnability | accountWinnability }}</span>
+              </div>
+            </td>
+            <td class="actions-column">
+              <button class="icon-button" aria-label="More information">
+                <i class="info-icon">i</i>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

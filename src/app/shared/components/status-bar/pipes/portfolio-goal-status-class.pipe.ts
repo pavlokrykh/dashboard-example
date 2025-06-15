@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PortfolioGoalStatus } from '@core/models/portfolio-goals.model';
+import { PortfolioGoalStatus } from '@core/models/dashboard/portfolio-goals.model';
 import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({

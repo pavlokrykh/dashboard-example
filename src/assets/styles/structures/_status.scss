@@ -27,6 +27,18 @@ $status-colors: (
   }
 }
 
+.status-new::before {
+  background-color: $primary-color;
+}
+
+.status-pending::before {
+  background-color: $status-warning-color;
+}
+
+.status-completed::before {
+  background-color: $status-success-color;
+}
+
 // Generate all status variants
 @include status-variant(background-color);
 @include status-variant(color);

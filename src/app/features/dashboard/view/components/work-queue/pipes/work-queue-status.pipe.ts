@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { WORK_QUEUE_STATUS_TRANSLATIONS, WorkQueueStatus } from '@core/models/work-queue-item.model';
+import { WORK_QUEUE_STATUS_TRANSLATIONS, WorkQueueStatus } from '@core/models/dashboard/work-queue-item.model';
 
 @Pipe({
   name: 'workQueueStatus',

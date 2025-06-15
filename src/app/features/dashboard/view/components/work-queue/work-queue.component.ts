@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { TaskType, WorkQueueStatus } from '@core/models/work-queue-item.model';
+import { TaskType, WorkQueueStatus } from '@core/models/dashboard/work-queue-item.model';
 import { WorkQueueService } from '@dashboard/data-access/services/work-queue.service';
 import { ProfileCircleComponent } from '@shared/components/profile-circle/profile-circle.component';
 import { useRouteFragment } from '@shared/utils/route-fragment.util';
@@ -16,7 +16,7 @@ export enum WorkQueueTab {
 
 @Component({
   selector: 'app-work-queue',
-  imports: [WorkQueueStatusPipe, WorkQueueStatusClassPipe, NgClass, ProfileCircleComponent],
+  imports: [ProfileCircleComponent, NgClass, WorkQueueStatusPipe, WorkQueueStatusClassPipe],
   templateUrl: './work-queue.component.html',
   styleUrls: ['./work-queue.component.scss'],
   providers: [WorkQueueService],

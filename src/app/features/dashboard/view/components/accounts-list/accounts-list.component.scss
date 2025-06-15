@@ -1,0 +1,175 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+// Table column width definitions
+table {
+  th, td {
+    &.name-column, &.account-name-cell {
+      width: 16%;
+    }
+    &.line-column, &.broker-column, &.date-column, &.rated-premium-column, &.status-column {
+      width: 9%;
+    }
+    &.premium-column, &.loss-ratio-column, &.appetite-column {
+      width: 7%;
+    }
+    &.triage-column {
+      width: 5%;
+    }
+    &.winnability-column {
+      width: 10%;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+// Custom table styles specific to accounts list
+.account-name {
+  font-weight: $fw-semibold;
+  color: $text-primary;
+}
+
+.account-type {
+  font-size: 0.75rem;
+  color: $text-header;
+}
+
+.premium-cell {
+  color: $primary-color;
+  font-weight: $fw-medium;
+}
+
+.premium-cell, .rated-premium-cell {
+  text-align: right;
+}
+
+// Pill badge for status, loss ratio, etc.
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: $fw-semibold;
+  color: white;
+  width: auto;
+
+  &.status-warning {
+    color: black;
+  }
+}
+
+.appetite-column {
+  .pill-badge {
+    color: $text-primary;
+    background-color: rgba($secondary-color, 0.3);
+  }
+}
+
+// Triage badge styles
+.triage-badge {
+  display: inline-block;
+  min-width: 2rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 4px;
+  font-weight: $fw-semibold;
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+}
+
+// Winnability rating styles
+.winnability-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.winnability-dots {
+  display: flex;
+  gap: 2px;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $border-color;
+
+    &.active {
+      background-color: $primary-color;
+    }
+  }
+
+  &.winnability-not-likely .dot.active {
+    background-color: $status-danger-color;
+  }
+
+  &.winnability-medium .dot.active {
+    background-color: $status-warning-color;
+  }
+
+  &.winnability-strong .dot.active {
+    background-color: $primary-color;
+  }
+
+  &.winnability-very-strong .dot.active {
+    background-color: $status-success-color;
+  }
+}
+
+.winnability-text {
+  font-size: 0.75rem;
+  color: $text-secondary;
+}
+
+// Additional specific styles for accounts table
+.accounts-table {
+  table-layout: fixed;
+  width: 100%;
+    // Ensure rows have consistent heights
+  tbody tr {
+    height: 60px;
+  }
+    // Ensure triage badges are centered
+  .triage-cell {
+    text-align: center;
+  }
+  // The loss ratio column should center the badges
+  .loss-ratio-column {
+    text-align: center;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  
+  // Status and appetite columns should also center their badges
+  .status-column, .appetite-column {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  
+  // All pill badges should be centered
+  .pill-badge {
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  // Add subtle border between rows
+  tr {
+    border-bottom: 1px solid $border-color;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+}

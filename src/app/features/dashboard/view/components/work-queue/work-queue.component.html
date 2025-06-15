@@ -17,12 +17,12 @@
     <table class="work-queue-table">
       <thead>
         <tr>
-          <th>ORIGINATOR</th>
-          <th>CLIENT/LINE</th>
-          <th>TYPE</th>
-          <th>STATUS</th>
-          <th>CREATED</th>
-          <th></th>
+          <th class="originator-column">ORIGINATOR</th>
+          <th class="client-column">CLIENT/LINE</th>
+          <th class="type-column">TYPE</th>
+          <th class="status-column">STATUS</th>
+          <th class="created-column">CREATED</th>
+          <th class="actions-column"></th>
         </tr>
       </thead>
       <tbody>
@@ -49,7 +49,7 @@
             <td class="created-column">{{ task.created }}</td>
             <!-- TODO: action -->
             <td class="actions-column">
-              <button class="info-button" aria-label="More information">
+              <button class="icon-button" aria-label="More information">
                 <i class="info-icon">i</i>
               </button>
             </td>

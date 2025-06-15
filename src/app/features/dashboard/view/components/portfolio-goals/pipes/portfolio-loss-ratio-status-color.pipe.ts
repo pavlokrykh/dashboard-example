@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PortfolioGoalStatus, PortfolioLossRatioTarget } from '@core/models/portfolio-goals.model';
+import { PortfolioGoalStatus, PortfolioLossRatioTarget } from '@core/models/dashboard/portfolio-goals.model';
 
 @Pipe({
   name: 'portfolioLossRatioStatusColor',

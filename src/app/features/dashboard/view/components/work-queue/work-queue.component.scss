@@ -1,7 +1,6 @@
 @use 'variables' as *;
 @use 'structures/table';
 
-// Add host styles so component fills its container
 :host {
   display: flex;
   flex-direction: column;
@@ -11,51 +10,82 @@
 
 .card {
   display: grid;
-  grid-template-rows: auto auto 1fr; // title, tabs, then table
-  height: 100%;                     // fill the host height
-  min-height: 0;                    // allow tbody to scroll
-  overflow: hidden;                 // clip header and tabs when scrolling
+  grid-template-rows: auto auto 1fr;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .tabs {
   display: flex;
   gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .table-container {
-  overflow-y: auto; // scroll only the table body
-  min-height: 0;    // required in grid context to enable scrolling
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .work-queue-table {
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: $fw-normal;
+
+  .originator-column {
+    width: 25%;
+  }
+  
+  .client-column {
+    width: 25%;
+  }
+    .type-column, .status-column, .created-column {
+    width: fit-content;
+    text-overflow: clip;
+    white-space: wrap !important;
+  }
 
   .originator-info {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 12px;
+    min-width: 0;
+    overflow: hidden;
+    flex-wrap: nowrap;
+
+    app-profile-circle {
+      flex: 0 0 auto;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    > span {
+      flex: 1 1 auto;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .client-info {
     .client-name {
       margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .line-name {
       font-size: 0.875rem;
       color: $text-header;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
-
-  .info-button {
-    @extend .icon-button;
-
-    .info-icon {
-      font-style: normal;
-      font-weight: $fw-bold;
-      font-size: 0.75rem;
-      color: $text-header;
-    }
+  .type-column, .created-column {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
