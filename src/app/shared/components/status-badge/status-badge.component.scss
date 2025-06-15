@@ -24,29 +24,47 @@
     width: 0.75rem !important;
     height: 0.75rem !important;
     margin-right: 0.5rem;
-  }
-  // When has-dots class is present, don't show the ::before pseudo-element
+  }  // When has-dots class is present, don't show the ::before pseudo-element
   &.has-dots {
     &::before {
       display: none;
     }
+    
+    // Status colors for badges with dots (applied to text color so currentColor works on dots)
+    &.status-success {
+      color: $status-success-color;
+    }
+    &.status-warning {
+      color: $status-warning-color;
+    }
+    &.status-danger {
+      color: $status-danger-color;
+    }
+    &.status-primary {
+      color: $primary-color;
+    }
+    &.status-secondary-darker {
+      color: $secondary-color;
+    }
   }
 
-  // Status colors for regular badges (applied to text color so currentColor works on dots)
-  &.status-success {
-    color: $status-success-color;
-  }
-  &.status-warning {
-    color: $status-warning-color;
-  }
-  &.status-danger {
-    color: $status-danger-color;
-  }
-  &.status-primary {
-    color: $primary-color;
-  }
-  &.status-secondary-darker {
-    color: $secondary-color;
+  // Status colors for badges without dots (only applied to ::before pseudo-element)
+  &:not(.has-dots) {
+    &.status-success::before {
+      background-color: $status-success-color;
+    }
+    &.status-warning::before {
+      background-color: $status-warning-color;
+    }
+    &.status-danger::before {
+      background-color: $status-danger-color;
+    }
+    &.status-primary::before {
+      background-color: $primary-color;
+    }
+    &.status-secondary-darker::before {
+      background-color: $secondary-color;
+    }
   }
 
   .badge-dots {

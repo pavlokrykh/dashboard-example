@@ -1,4 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UserStore } from '@core/states/user.store';
 import { WorkQueueService } from '@dashboard/data-access/services/work-queue.service';
 import { ProfileCircleComponent } from '@shared/components/profile-circle/profile-circle.component';
@@ -20,6 +21,10 @@ export class TopbarComponent {
 
   readonly $userName = computed(() => this.$user()?.name || 'Guest');
   readonly $name = computed(() => this.$userName().split(' ')[0]);
+
+  constructor() {
+    this.workQueueService.getWorkQueue().pipe(takeUntilDestroyed()).subscribe();
+  }
 
   onSearch(searchValue: string): void {
     this.workQueueService.searchTasks(searchValue);
