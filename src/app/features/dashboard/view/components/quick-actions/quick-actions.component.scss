@@ -1,0 +1,18 @@
+@use 'variables' as *;
+
+.quick-actions-card {
+  height: 100%;
+  min-height: 280px;
+}
+
+.quick-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex: 1;
+}
+
+.quick-action-btn {
+  width: 100%;
+}
