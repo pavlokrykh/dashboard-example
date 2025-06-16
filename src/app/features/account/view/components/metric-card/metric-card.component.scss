@@ -36,14 +36,10 @@
     flex: 0 0 auto;
 
     .metric-value {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: $fw-bold;
       color: $text-primary;
       line-height: 1.2;
-
-      &.large {
-        font-size: 2.5rem;
-      }
     }
   }
 
@@ -55,14 +51,14 @@
     margin-left: auto;
 
     .metric-target {
-      font-size: 0.875rem;
+      font-size: 1rem;
       font-weight: $fw-normal;
       color: $text-secondary;
       text-align: right;
     }
 
     .metric-description {
-      font-size: 0.875rem;
+      font-size: 1rem;
       font-weight: $fw-normal;
       color: $text-secondary;
       text-align: right;

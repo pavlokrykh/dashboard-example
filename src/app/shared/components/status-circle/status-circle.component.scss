@@ -1,0 +1,32 @@
+@use 'variables' as *;
+
+.status-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #8A8B98;
+  background: transparent;
+  transition: all 0.3s ease;
+
+  .checkmark {
+    color: #8A8B98;
+    font-weight: $fw-bold;
+    font-size: 0.875rem;
+  }
+
+  &.completed {
+    border-color: $status-success-color;
+    background: transparent;
+
+    .checkmark {
+      color: $status-success-color;
+    }
+  }
+
+  &.dashed {
+    border-style: dashed;
+  }
+}

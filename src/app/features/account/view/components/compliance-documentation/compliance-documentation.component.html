@@ -1,0 +1,13 @@
+<div class="compliance-documentation">
+  <div class="documentation-grid">
+    @for (item of $items(); track $index) {
+      <div class="documentation-item">
+        <app-status-circle [completed]="item.completed" />
+        <span class="item-label">{{ item.item }}</span>
+      </div>
+    }
+  </div>
+  <div class="see-history">
+    <a href="#" class="history-link">See history →</a>
+  </div>
+</div>

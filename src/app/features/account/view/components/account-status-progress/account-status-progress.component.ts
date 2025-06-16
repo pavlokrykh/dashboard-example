@@ -1,18 +1,14 @@
 import { Component, input } from '@angular/core';
-import { AccountStatusStep, StatusStep } from '@core/models/account/account-details.model';
+import { AccountStatusStep } from '@core/models/account/account-details.model';
+import { StatusCircleComponent } from '@shared/components/status-circle/status-circle.component';
 
 @Component({
   selector: 'app-account-status-progress',
   standalone: true,
+  imports: [StatusCircleComponent],
   templateUrl: './account-status-progress.component.html',
   styleUrls: ['./account-status-progress.component.scss'],
 })
 export class AccountStatusProgressComponent {
   $steps = input.required<AccountStatusStep[]>({ alias: 'steps' });
-  readonly StatusStep = StatusStep;
-
-  isCurrentStep(index: number): boolean {
-    const steps = this.$steps();
-    return index === steps.findIndex((step) => !step.completed);
-  }
 }

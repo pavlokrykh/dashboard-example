@@ -1,16 +1,24 @@
 import { AccountDetailsService } from '@account/data-access/services/account-details.service';
 import { AlertCardComponent } from '@account/view/components/alert-card/alert-card.component';
 import { MetricCardComponent } from '@account/view/components/metric-card/metric-card.component';
+import { PoliciesListComponent } from '@account/view/components/policies-list/policies-list.component';
 import { Component, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 // eslint-disable-next-line max-len
 import { AccountStatusProgressComponent } from '@account/view/components/account-status-progress/account-status-progress.component';
-import { CurrencyFormatPipe } from '@shared/pipes/currency-format.pipe';
+// eslint-disable-next-line max-len
+import { ComplianceDocumentationComponent } from '@account/view/components/compliance-documentation/compliance-documentation.component';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [AlertCardComponent, MetricCardComponent, AccountStatusProgressComponent, CurrencyFormatPipe],
+  imports: [
+    AlertCardComponent,
+    MetricCardComponent,
+    PoliciesListComponent,
+    AccountStatusProgressComponent,
+    ComplianceDocumentationComponent,
+  ],
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],
   providers: [AccountDetailsService],

@@ -77,12 +77,18 @@
       "premium": 275000,
       "effDate": "13/03/2026"
     }
+  ],  "accountStatus": [
+    { "step": "Submitted", "completed": true },
+    { "step": "Review", "completed": true },
+    { "step": "Quote", "completed": true },
+    { "step": "Bind", "completed": true },
+    { "step": "Issue", "completed": true },
+    { "step": "Renew", "completed": false }
   ],
-  "accountStatus": [
-    { "step": "Renewal meeting", "completed": true },
-    { "step": "Renewal terms", "completed": true },
-    { "step": "Proposal review", "completed": true },
-    { "step": "Final negotiation", "completed": true },
-    { "step": "Closing", "completed": false }
+  "complianceDocumentation": [
+    { "item": "KYC verification", "completed": true },
+    { "item": "Regulatory approval", "completed": true },
+    { "item": "Required Documentation", "completed": true },
+    { "item": "Financial Verification", "completed": true }
   ]
 }

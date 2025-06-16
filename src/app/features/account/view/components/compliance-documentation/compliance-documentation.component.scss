@@ -1,0 +1,39 @@
+@use 'variables' as *;
+
+.compliance-documentation {
+  .documentation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .documentation-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .item-label {
+        font-size: 0.875rem;
+        color: $text-primary;
+        font-weight: $fw-medium;
+      }
+    }
+  }
+
+  .see-history {
+    .history-link {
+      color: $primary-color;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: $fw-medium;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

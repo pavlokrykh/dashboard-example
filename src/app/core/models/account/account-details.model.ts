@@ -21,11 +21,12 @@ export enum PolicyType {
 import { Winnability } from '@shared/enums/winnability.enum';
 
 export enum StatusStep {
-  RenewalMeeting = 'Renewal meeting',
-  RenewalTerms = 'Renewal terms',
-  ProposalReview = 'Proposal review',
-  FinalNegotiation = 'Final negotiation',
-  Closing = 'Closing',
+  Submitted = 'Submitted',
+  Review = 'Review',
+  Quote = 'Quote',
+  Bind = 'Bind',
+  Issue = 'Issue',
+  Renew = 'Renew',
 }
 
 export interface AccountDetailsAlert {
@@ -57,9 +58,15 @@ export interface AccountStatusStep {
   completed: boolean;
 }
 
+export interface ComplianceDocumentationItem {
+  item: string;
+  completed: boolean;
+}
+
 export interface AccountDetails {
   details: AccountDetailsAlert[];
   performanceMetrics: PerformanceMetric[];
   policies: Policy[];
   accountStatus: AccountStatusStep[];
+  complianceDocumentation: ComplianceDocumentationItem[];
 }
