@@ -39,7 +39,11 @@
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
 
-  .progress-fill {
+  // Allow overflow when progress fill is hovered
+  &:has(.bar-hover-enlarge:hover) {
+    overflow: visible;
+    z-index: 5;
+  }  .progress-fill {
     position: absolute;
     top: 0;
     left: 0;
@@ -51,6 +55,16 @@
     padding-right: 12px;
     transition: width 0s ease;
     z-index: 2;
+    
+    // Ensure hover transition works properly
+    &.bar-hover-enlarge {
+      // Don't override the transition from the shared class
+      transition: width 0s ease, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      &:hover {
+        border-radius: 0 16px 16px 0;
+      }
+    }
 
     .current-label {
       color: white;

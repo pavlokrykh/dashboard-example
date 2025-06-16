@@ -6,11 +6,10 @@
       <span class="target-value">{{ $targetDisplayValue() }}</span>
       <div class="target-arrow-down"></div>
     </div>
-  }
-  <div class="status-bar-track">
+  }  <div class="status-bar-track">
     @for (range of $ranges(); track $index) {
       <div 
-        class="status-bar-segment" 
+        class="status-bar-segment bar-hover-enlarge" 
         [class]="range.status | portfolioGoalStatusClass"
         [style.flex-grow]="range.max - range.min">
       </div>

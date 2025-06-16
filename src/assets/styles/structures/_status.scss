@@ -71,3 +71,17 @@ $status-colors: (
 // Generate status variants for other components (excluding status badges)
 @include status-variant(color);
 @include status-variant(border-bottom-color);
+
+// Shared hover effect for bars (progress bars and status bars)
+.bar-hover-enlarge {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform-origin: center;
+  
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.1);
+    z-index: 10;
+    position: relative;
+  }
+}
