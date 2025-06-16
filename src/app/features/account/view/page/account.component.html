@@ -46,10 +46,10 @@
           <div class="metrics-grid">
             @for (metric of details.performanceMetrics; track $index) {
               <app-metric-card [metric]="metric" />
-            }
-          </div>
-        </div>
-      }<!-- Policies Section -->
+            }          </div>        </div>
+      }
+
+      <!-- Policies Section -->
       @if (details.policies.length) {
         <div class="policies-row">
           <app-policies-list [policies]="details.policies" />

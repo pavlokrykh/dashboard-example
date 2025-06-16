@@ -98,4 +98,35 @@
   }
 }
 
+// Button variants
+.btn-success {
+  background-color: $status-success-color;
+  color: #fff;
+
+  &:hover,
+  &:active {
+    background-color: darken($status-success-color, 10%);
+  }
+
+  &:disabled {
+    background-color: rgba($status-success-color, 0.5);
+    cursor: not-allowed;
+  }
+}
+
+.btn-danger {
+  background-color: $status-danger-color;
+  color: #fff;
+
+  &:hover,
+  &:active {
+    background-color: darken($status-danger-color, 10%);
+  }
+
+  &:disabled {
+    background-color: rgba($status-danger-color, 0.5);
+    cursor: not-allowed;
+  }
+}
+
 

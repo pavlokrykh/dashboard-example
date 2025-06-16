@@ -105,10 +105,10 @@
 
   .performance-metrics {
     h3 {
-      font-size: 2rem;
-      font-weight: $fw-semibold;
+      font-size: 1.5rem;
+      font-weight: $fw-medium;
       color: $text-primary;
-      margin: 0 0 1.5rem 0;
+      margin-bottom: 1.5rem;
     }
 
     .metrics-grid {
@@ -116,6 +116,10 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
+  }
+
+  .ai-recommendations-section {
+    margin: 2rem 0;
   }
 
   .account-status-section {

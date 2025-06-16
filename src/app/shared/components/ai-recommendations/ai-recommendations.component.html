@@ -1,0 +1,22 @@
+<div class="sub-card">
+  <div class="ai-recommendations-header">
+    <span class="ai-icon">🤖</span>
+    <h3 class="ai-recommendations-title">AI-Powered Recommendations</h3>
+  </div>
+  
+  <div class="recommendations-list">
+    @for (recommendation of $recommendations(); track $index) {
+      <div class="recommendation-item">
+        <div class="recommendation-content">
+          <div class="recommendation-title">{{ recommendation.title }}</div>
+          <div class="recommendation-description">{{ recommendation.description }}</div>
+        </div>
+        <button 
+          class="btn btn-success btn-large"
+          (click)="onApplyRecommendation(recommendation)">
+          {{ recommendation.action }}
+        </button>
+      </div>
+    }
+  </div>
+</div>

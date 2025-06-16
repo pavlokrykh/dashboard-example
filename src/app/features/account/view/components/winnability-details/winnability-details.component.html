@@ -140,25 +140,7 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- AI Recommendations Section -->
-    <div class="recommendations-section">
-      <div class="recommendations-header">
-        <div class="ai-icon">🤖</div>
-        <h3 class="recommendations-title">AI-Powered Recommendations</h3>
-      </div>
-      <div class="recommendations-list">
-        @for (recommendation of $winnabilityDetails().aiRecommendations; track $index) {
-          <div class="recommendation-item">
-            <div class="recommendation-content">
-              <div class="recommendation-title">{{ recommendation.title }}</div>
-              <div class="recommendation-description">{{ recommendation.description }}</div>
-            </div>
-            <button class="apply-button">{{ recommendation.action }}</button>
-          </div>
-        }
-      </div>
-    </div>
+    </div>    <!-- AI Recommendations Section -->
+    <app-ai-recommendations [recommendations]="$winnabilityDetails().aiRecommendations" />
   </div>
 </div>

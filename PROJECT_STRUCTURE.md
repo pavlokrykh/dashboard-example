@@ -145,6 +145,10 @@ export class TaskListComponent implements OnInit, OnDestroy {
    - `searchResults$ = this.service.search(term);`
    - `items$ = this.http.get<Item[]>('/api/items');`
 
+3. **Enum naming**: All enums must use PascalCase (e.g., `StatusType`, `UserRole`).
+
+4. **Exported constant naming**: All exported constants must use SCREAMING_SNAKE_CASE (e.g., `MY_CONST`, `DEFAULT_TIMEOUT`).
+
 ## Project Organization
 
 The project follows a modular architecture with clear separation of concerns.
