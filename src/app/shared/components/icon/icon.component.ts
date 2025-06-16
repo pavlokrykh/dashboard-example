@@ -6,7 +6,6 @@ import { IconService } from '@shared/services/icon.service';
 
 @Component({
   selector: 'app-icon',
-  standalone: true,
   imports: [CommonModule],
   template: '<span [innerHTML]="$svgIcon()"></span>',
   styleUrls: ['./icon.component.scss'],

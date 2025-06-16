@@ -26,7 +26,6 @@ import { GetInitialsPipe } from './pipes/get-initials.pipe';
       font-size: 0.875rem;
     }
   `,
-  standalone: true,
 })
 export class ProfileCircleComponent {
   $name = input.required<string>({ alias: 'name' });

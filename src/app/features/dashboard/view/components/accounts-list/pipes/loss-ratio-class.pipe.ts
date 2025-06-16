@@ -3,7 +3,6 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({
   name: 'lossRatioClass',
-  standalone: true,
 })
 export class LossRatioClassPipe implements PipeTransform {
   transform(lossRatio: number): StatusColors {

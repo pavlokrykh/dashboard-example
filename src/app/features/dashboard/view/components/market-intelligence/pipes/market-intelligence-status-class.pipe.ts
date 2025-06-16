@@ -4,7 +4,6 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({
   name: 'marketIntelligenceStatusClass',
-  standalone: true,
 })
 export class MarketIntelligenceStatusClassPipe implements PipeTransform {
   transform(status: MarketIntelligenceStatus): StatusColors {

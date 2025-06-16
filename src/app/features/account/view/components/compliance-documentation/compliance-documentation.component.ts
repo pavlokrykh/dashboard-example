@@ -4,7 +4,6 @@ import { StatusCircleComponent } from '@shared/components/status-circle/status-c
 
 @Component({
   selector: 'app-compliance-documentation',
-  standalone: true,
   imports: [StatusCircleComponent],
   templateUrl: './compliance-documentation.component.html',
   styleUrls: ['./compliance-documentation.component.scss'],

@@ -4,7 +4,6 @@ import { CurrencyFormatPipe } from '@shared/pipes/currency-format.pipe';
 
 @Component({
   selector: 'app-policies-list',
-  standalone: true,
   imports: [CurrencyFormatPipe],
   templateUrl: './policies-list.component.html',
   styleUrls: ['./policies-list.component.scss'],

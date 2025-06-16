@@ -29,7 +29,6 @@ import { LossRatioClassPipe } from './pipes/loss-ratio-class.pipe';
   templateUrl: './accounts-list.component.html',
   styleUrls: ['./accounts-list.component.scss'],
   providers: [AccountsListService],
-  standalone: true,
 })
 export class AccountsListComponent {
   private readonly accountsListService = inject(AccountsListService);

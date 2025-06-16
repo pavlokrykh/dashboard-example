@@ -3,7 +3,6 @@ import { Status } from '@core/models/dashboard/accounts-list.model';
 
 @Pipe({
   name: 'accountStatus',
-  standalone: true,
 })
 export class AccountStatusPipe implements PipeTransform {
   transform(status: Status): string {

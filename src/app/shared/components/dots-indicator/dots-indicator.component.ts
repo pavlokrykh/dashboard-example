@@ -2,7 +2,6 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-dots-indicator',
-  standalone: true,
   template: `
     <div class="dots-indicator">
       @for (dot of dotArray; track $index) {

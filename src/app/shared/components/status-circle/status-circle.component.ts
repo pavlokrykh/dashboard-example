@@ -2,7 +2,6 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-status-circle',
-  standalone: true,
   template: `
     <div class="status-circle" [class.completed]="$completed()" [class.dashed]="$dashed()">
       <span class="checkmark">✓</span>

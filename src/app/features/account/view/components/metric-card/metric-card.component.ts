@@ -8,7 +8,6 @@ import { WinnabilityStatusPipe } from '@shared/pipes/winnability-status.pipe';
 
 @Component({
   selector: 'app-metric-card',
-  standalone: true,
   imports: [ProgressBarComponent, StatusBadgeComponent, WinnabilityStatusPipe],
   templateUrl: './metric-card.component.html',
   styleUrls: ['./metric-card.component.scss'],

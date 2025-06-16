@@ -4,7 +4,6 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({
   name: 'portfolioGoalStatusClass',
-  standalone: true,
 })
 export class PortfolioGoalStatusClassPipe implements PipeTransform {
   transform(status: PortfolioGoalStatus): StatusColors {

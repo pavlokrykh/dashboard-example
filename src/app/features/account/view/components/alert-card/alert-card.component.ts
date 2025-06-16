@@ -3,7 +3,6 @@ import { AccountDetailsAlert, AlertType } from '@core/models/account/account-det
 
 @Component({
   selector: 'app-alert-card',
-  standalone: true,
   templateUrl: './alert-card.component.html',
   styleUrls: ['./alert-card.component.scss'],
 })

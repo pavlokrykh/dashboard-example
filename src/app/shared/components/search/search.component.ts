@@ -5,7 +5,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
-  standalone: true,
   imports: [FormsModule],
   template: `
     <input

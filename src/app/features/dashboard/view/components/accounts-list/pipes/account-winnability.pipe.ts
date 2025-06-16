@@ -3,7 +3,6 @@ import { Winnability } from '@shared/enums/winnability.enum';
 
 @Pipe({
   name: 'accountWinnability',
-  standalone: true,
 })
 export class AccountWinnabilityPipe implements PipeTransform {
   transform(winnability: Winnability): string {

@@ -3,7 +3,6 @@ import { WORK_QUEUE_STATUS_TRANSLATIONS, WorkQueueStatus } from '@core/models/da
 
 @Pipe({
   name: 'workQueueStatus',
-  standalone: true,
 })
 export class WorkQueueStatusPipe implements PipeTransform {
   transform(status: WorkQueueStatus): string {

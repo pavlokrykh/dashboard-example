@@ -11,7 +11,6 @@ import { ComplianceDocumentationComponent } from '@account/view/components/compl
 
 @Component({
   selector: 'app-account',
-  standalone: true,
   imports: [
     AlertCardComponent,
     MetricCardComponent,

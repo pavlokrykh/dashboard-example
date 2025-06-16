@@ -4,7 +4,6 @@ import { ProgressStepperComponent, StepperStep } from '@shared/components/progre
 
 @Component({
   selector: 'app-account-status-progress',
-  standalone: true,
   imports: [ProgressStepperComponent],
   templateUrl: './account-status-progress.component.html',
   styleUrls: ['./account-status-progress.component.scss'],

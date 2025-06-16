@@ -4,7 +4,6 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Component({
   selector: 'app-status-badge',
-  standalone: true,
   imports: [NgClass],
   template: `
     @if ($pill()) {

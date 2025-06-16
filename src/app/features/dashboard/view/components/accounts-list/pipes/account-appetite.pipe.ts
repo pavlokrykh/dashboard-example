@@ -3,7 +3,6 @@ import { Appetite } from '@core/models/dashboard/accounts-list.model';
 
 @Pipe({
   name: 'accountAppetite',
-  standalone: true,
 })
 export class AccountAppetitePipe implements PipeTransform {
   transform(appetite: Appetite): string {

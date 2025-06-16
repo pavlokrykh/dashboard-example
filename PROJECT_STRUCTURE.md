@@ -41,7 +41,6 @@ Classes should follow this specific ordering of elements:
 ```typescript
 @Component({
   selector: 'app-task-list',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss']

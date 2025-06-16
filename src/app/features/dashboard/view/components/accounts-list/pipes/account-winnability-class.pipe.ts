@@ -4,7 +4,6 @@ import { Winnability } from '@shared/enums/winnability.enum';
 
 @Pipe({
   name: 'accountWinnabilityClass',
-  standalone: true,
 })
 export class AccountWinnabilityClassPipe implements PipeTransform {
   transform(winnability: Winnability): StatusColors {
