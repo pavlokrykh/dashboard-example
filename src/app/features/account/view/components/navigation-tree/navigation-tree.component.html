@@ -1,0 +1,52 @@
+<div class="navigation-tree">
+  @for (group of navigationGroups; track group.id) {
+    <div class="navigation-group" [class.open]="isGroupOpen(group.id)">
+      @if (isGroupOpen(group.id)) {
+        <!-- Opened group with sub-card wrapper -->
+        <div class="sub-card">
+          <!-- Group Header inside sub-card -->
+          <div 
+            class="group-header active"
+            (click)="onGroupClick(group.id)"
+            (keydown.enter)="onGroupClick(group.id)"
+            (keydown.space)="onGroupClick(group.id)"
+            tabindex="0"
+            role="button"
+            [attr.aria-expanded]="true"
+          >
+            <span class="group-label">{{ group.label }}</span>
+            <span class="group-count">{{ group.subnodes.length }}</span>
+          </div>
+
+          <!-- Subnodes -->
+          <div class="subnodes-list">
+            @for (node of group.subnodes; track node.id) {
+              <button 
+                class="subnode-btn"
+                [class.active]="isNodeActive(node.id)"
+                (click)="onNodeClick(node.id)"
+                type="button"
+              >
+                {{ node.label }}
+              </button>
+            }
+          </div>
+        </div>
+      } @else {
+        <!-- Closed group header -->
+        <div 
+          class="group-header"
+          (click)="onGroupClick(group.id)"
+          (keydown.enter)="onGroupClick(group.id)"
+          (keydown.space)="onGroupClick(group.id)"
+          tabindex="0"
+          role="button"
+          [attr.aria-expanded]="false"
+        >
+          <span class="group-label">{{ group.label }}</span>
+          <span class="group-count">{{ group.subnodes.length }}</span>
+        </div>
+      }
+    </div>
+  }
+</div>

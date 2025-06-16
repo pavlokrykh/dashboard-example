@@ -1,0 +1,26 @@
+<div class="accounts-details">
+  <div class="card">
+    <div class="accounts-details-container">
+      <!-- Left Navigation Panel -->
+      <div class="navigation-panel">
+        <app-navigation-tree (nodeSelected)="onNodeSelected($event)" />
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="content-area">
+        @if (showContent()) {
+          <div class="content-placeholder">
+            <!-- Winnability content will go here -->
+            <div class="content-text">
+              Winnability content will be displayed here
+            </div>
+          </div>
+        } @else {
+          <div class="no-data">
+            No data
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { Component, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 // eslint-disable-next-line max-len
 import { AccountStatusProgressComponent } from '@account/view/components/account-status-progress/account-status-progress.component';
+import { AccountsDetailsComponent } from '@account/view/components/accounts-details/accounts-details.component';
 // eslint-disable-next-line max-len
 import { ComplianceDocumentationComponent } from '@account/view/components/compliance-documentation/compliance-documentation.component';
 
@@ -17,6 +18,7 @@ import { ComplianceDocumentationComponent } from '@account/view/components/compl
     PoliciesListComponent,
     AccountStatusProgressComponent,
     ComplianceDocumentationComponent,
+    AccountsDetailsComponent,
   ],
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],

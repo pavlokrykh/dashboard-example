@@ -101,7 +101,9 @@
 
   .needs-attention {
     width: 100%;
-  }  .performance-metrics {
+  }
+
+  .performance-metrics {
     h3 {
       font-size: 2rem;
       font-weight: $fw-semibold;
@@ -146,6 +148,23 @@
     }
 
     .card {
+      flex: 1;
+    }
+  }
+
+  .account-details-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    h3 {
+      font-size: 2rem;
+      font-weight: $fw-semibold;
+      color: $text-primary;
+      margin: 0 0 1.5rem 0;
+    }
+
+    app-accounts-details {
       flex: 1;
     }
   }
