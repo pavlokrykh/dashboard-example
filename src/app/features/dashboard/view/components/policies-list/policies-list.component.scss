@@ -1,0 +1,126 @@
+@use 'variables' as *;
+
+// Policies section styling
+.policies-section {
+  h3 {
+    font-size: 2rem;
+    font-weight: $fw-semibold;
+    color: $text-primary;
+    margin: 0 0 1.5rem 0;
+  }
+}
+
+// Table column width definitions
+table {
+  th, td {
+    &.line-column {
+      width: 16%;
+    }
+    &.date-column {
+      width: 8%;
+    }
+    &.status-column {
+      width: 8%;
+    }
+    &.amount-column {
+      width: 10%;
+      text-align: right;
+    }
+    &.rate-column {
+      width: 8%;
+    }
+    &.loss-ratio-column {
+      width: 8%;
+      text-align: center;
+    }
+  }
+}
+
+// Line cell styling
+.line-cell {
+  .line-info {
+    display: flex;
+    align-items: center;
+
+    .line-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+
+      .line-name {
+        font-weight: $fw-semibold;
+        color: $text-primary;
+        font-size: 0.875rem;
+      }
+
+      .policy-id {
+        font-size: 0.75rem;
+        color: $text-header;
+      }
+    }
+  }
+}
+
+// Amount cells styling
+.amount-cell {
+  text-align: right;
+  font-weight: $fw-medium;
+  color: $text-primary;
+}
+
+// Rate change cell styling
+.rate-change-cell {
+  font-weight: $fw-medium;
+  
+  &.positive {
+    color: $status-danger-color;
+  }
+  
+  &.negative {
+    color: $status-success-color;
+  }
+}
+
+// Status and loss ratio columns
+.status-column, .loss-ratio-column {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+// Policies table specific styling
+.policies-table {
+  table-layout: fixed;
+  width: 100%;
+
+  tbody tr {
+    height: 60px;
+  }
+
+  tr {
+    border-bottom: 1px solid $border-color;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  // Totals section styling
+  .totals-section {
+    border-top: 2px solid $border-color;
+    
+    .totals-row {
+      background-color: rgba(255, 255, 255, 0.02);
+      
+      .total-label {
+        font-weight: $fw-semibold;
+        color: $text-primary;
+        font-size: 0.875rem;
+      }
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.02) !important;
+      }
+    }
+  }
+}

@@ -10,6 +10,8 @@ import { AccountsDetailsComponent } from '@account/view/components/accounts-deta
 import { CommunicationComponent } from '@account/view/components/communication/communication.component';
 // eslint-disable-next-line max-len
 import { ComplianceDocumentationComponent } from '@account/view/components/compliance-documentation/compliance-documentation.component';
+// eslint-disable-next-line max-len
+import { PoliciesListComponent as DashboardPoliciesListComponent } from '@dashboard/view/components/policies-list/policies-list.component';
 
 @Component({
   selector: 'app-account',
@@ -21,6 +23,7 @@ import { ComplianceDocumentationComponent } from '@account/view/components/compl
     ComplianceDocumentationComponent,
     AccountsDetailsComponent,
     CommunicationComponent,
+    DashboardPoliciesListComponent,
   ],
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],

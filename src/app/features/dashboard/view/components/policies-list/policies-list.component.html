@@ -1,0 +1,99 @@
+<div class="policies-section">
+  <h3>Policies</h3>
+  <div class="card">
+    <span class="card-title">
+      <div class="actions">
+        <button class="btn-outlined">Filter</button>
+        <button class="btn-outlined">Group</button>
+      </div>
+    </span>
+  
+  <div class="table-container">
+    <table class="policies-table">
+      <thead>
+        <tr>
+          <th class="line-column">LINE</th>
+          <th class="date-column">EFF. DATE</th>
+          <th class="date-column">EXP. DATE</th>
+          <th class="status-column">STATUS</th>
+          <th class="amount-column">EXPIRING TECH</th>
+          <th class="amount-column">EXPIRING PREMIUM</th>
+          <th class="amount-column">RENEWAL TO TECH</th>
+          <th class="amount-column">RENEWAL TECH</th>
+          <th class="amount-column">RENEWAL PREMIUM</th>
+          <th class="rate-column">RATE CHANGE</th>
+          <th class="loss-ratio-column">LOSS RATIO</th>
+          <th class="actions-column"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (policy of $policiesList(); track policy.id) {
+          <tr>            <td class="line-cell">
+              <div class="line-info">
+                <div class="line-details">
+                  <div class="line-name">{{ policy.line }}</div>
+                  <div class="policy-id">{{ policy.id }}</div>
+                </div>
+              </div>
+            </td>
+            <td>{{ policy.effDate }}</td>
+            <td>{{ policy.expDate }}</td>
+            <td class="status-column">
+              <app-status-badge 
+                [text]="policy.status | policyStatus"
+                [statusClass]="policy.status | policyStatusClass">
+              </app-status-badge>
+            </td>
+            <td class="amount-cell">{{ policy.expiringTech | currencyFormat }}</td>
+            <td class="amount-cell">{{ policy.expiringPremium | currencyFormat }}</td>
+            <td class="amount-cell">{{ policy.renewalToTech | currencyFormat }}</td>
+            <td class="amount-cell">{{ policy.renewalTech | currencyFormat }}</td>
+            <td class="amount-cell">{{ policy.renewalPremium | currencyFormat }}</td>
+            <td class="rate-change-cell" [class]="policy.rateChange !== null ? (policy.rateChange >= 0 ? 'positive' : 'negative') : ''">
+              @if (policy.rateChange !== null) {
+                {{ (policy.rateChange / 100) | percent:'1.1-1' }}
+              } @else {
+                N/A
+              }
+            </td>            <td class="loss-ratio-column">
+              @if (policy.lossRatio !== null) {
+                <app-status-badge 
+                  pill
+                  [text]="getLossRatioText(policy.lossRatio)"
+                  [statusClass]="getLossRatioDecimal(policy.lossRatio) | lossRatioClass">
+                </app-status-badge>
+              } @else {
+                <span>N/A</span>
+              }
+            </td>
+            <td class="actions-column">
+              <button class="icon-button" aria-label="More information">
+                <i class="info-icon">i</i>
+              </button>
+            </td>
+          </tr>        }
+      </tbody>
+      <tbody class="totals-section">
+        <tr class="totals-row">
+          <td class="total-label">TOTAL (4)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="amount-cell">{{ getTotalExpiringTech() | currencyFormat }}</td>
+          <td class="amount-cell">{{ getTotalExpiringPremium() | currencyFormat }}</td>
+          <td class="amount-cell">{{ getTotalRenewalToTech() | currencyFormat }}</td>
+          <td class="amount-cell">{{ getTotalRenewalTech() | currencyFormat }}</td>
+          <td class="amount-cell">{{ getTotalRenewalPremium() | currencyFormat }}</td>
+          <td class="rate-change-cell">{{ getAverageRateChange() }}%</td>
+          <td class="loss-ratio-column">
+            <app-status-badge 
+              pill
+              [text]="getAverageLossRatio() + '%'"
+              [statusClass]="StatusColors.Warning">
+            </app-status-badge>
+          </td>
+          <td class="actions-column"></td>
+        </tr>      </tbody>
+    </table>
+  </div>
+</div>
