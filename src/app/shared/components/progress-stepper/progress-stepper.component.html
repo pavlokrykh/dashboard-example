@@ -7,7 +7,7 @@
       />
       <div class="step-label">{{ step.label }}</div>
       @if ($index < $steps().length - 1) {
-        <div class="step-connector" [class.completed]="step.completed"></div>
+        <div class="step-connector" [class.completed]="$steps()[$index + 1].completed"></div>
       }
     </div>
   }
