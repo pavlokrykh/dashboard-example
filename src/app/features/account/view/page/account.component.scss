@@ -102,13 +102,12 @@
   .needs-attention {
     width: 100%;
   }
-
   .performance-metrics {
     h3 {
-      font-size: 1.5rem;
-      font-weight: $fw-medium;
-      color: $text-primary;
-      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #E5E7EB;
+      margin: 0 0 1.5rem 0;
     }
 
     .metrics-grid {
@@ -171,9 +170,5 @@
     app-accounts-details {
       flex: 1;
     }
-  }
-
-  .policies-list-row {
-    margin-top: 2rem;
   }
 }
