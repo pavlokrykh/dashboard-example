@@ -1,7 +1,13 @@
 <div class="policies-section">
-  <h3>Policies</h3>
-  <div class="card">
+  <h3>Policies</h3>  <div class="card">
     <span class="card-title">
+      <div class="title-section">
+        <span>Policies</span>        <app-search 
+          placeholder="Search policies..." 
+          [width]="300"
+          outline
+          (searchValue)="onSearchChange($event)" />
+      </div>
       <div class="actions">
         <button class="btn-outlined">Filter</button>
         <button class="btn-outlined">Group</button>
@@ -27,7 +33,7 @@
         </tr>
       </thead>
       <tbody>
-        @for (policy of $policiesList(); track policy.id) {
+        @for (policy of $filteredPolicies(); track policy.id) {
           <tr>            <td class="line-cell">
               <div class="line-info">
                 <div class="line-details">
@@ -75,7 +81,7 @@
       </tbody>
       <tbody class="totals-section">
         <tr class="totals-row">
-          <td class="total-label">TOTAL (4)</td>
+          <td class="total-label">TOTAL ({{ $filteredPolicies().length }})</td>
           <td></td>
           <td></td>
           <td></td>

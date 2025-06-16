@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { booleanAttribute, Component, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   template: `
     <input
       class="search-input"
+      [class.outlined]="$outline()"
       type="text"
       [style.width.px]="$width()"
       [placeholder]="$placeholder()"
@@ -34,6 +35,10 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
         outline: none;
       }
 
+      &.outlined {
+        border: 1px solid $border-color;
+      }
+
       &::placeholder {
         color: $search-placeholder-text;
       }
@@ -43,6 +48,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class SearchComponent {
   $placeholder = input<string>('', { alias: 'placeholder' });
   $width = input<number>(480, { alias: 'width' });
+  $outline = input<boolean, unknown>(false, { alias: 'outline', transform: booleanAttribute });
 
   searchValue = output<string>();
 

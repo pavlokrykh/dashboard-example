@@ -10,6 +10,21 @@
   }
 }
 
+// Title section with search
+.card-title {
+  .title-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    span {
+      font-size: 1.125rem;
+      font-weight: $fw-semibold;
+      color: $text-primary;
+    }
+  }
+}
+
 // Table column width definitions
 table {
   th, td {
@@ -71,11 +86,11 @@ table {
 // Rate change cell styling
 .rate-change-cell {
   font-weight: $fw-medium;
-  
+
   &.positive {
     color: $status-danger-color;
   }
-  
+
   &.negative {
     color: $status-success-color;
   }
@@ -99,7 +114,7 @@ table {
 
   tr {
     border-bottom: 1px solid $border-color;
-    
+
     &:hover {
       background-color: rgba(255, 255, 255, 0.05);
     }
@@ -108,16 +123,16 @@ table {
   // Totals section styling
   .totals-section {
     border-top: 2px solid $border-color;
-    
+
     .totals-row {
       background-color: rgba(255, 255, 255, 0.02);
-      
+
       .total-label {
         font-weight: $fw-semibold;
         color: $text-primary;
         font-size: 0.875rem;
       }
-      
+
       &:hover {
         background-color: rgba(255, 255, 255, 0.02) !important;
       }
