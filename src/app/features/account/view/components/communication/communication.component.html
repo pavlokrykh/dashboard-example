@@ -1,0 +1,45 @@
+<div class="communication-section">
+  <h3>Communication</h3>
+  <div class="card">
+    <div class="masonry-container">
+      @for (communication of $communications(); track communication.title) {
+        <div class="sub-card communication-message" [class.new-message]="isNewMessage(communication.status)"><div class="message-header">
+              <div class="message-info">
+                <div class="message-status-title">
+                  @if (shouldShowStatusBadge(communication.status)) {
+                    <app-status-badge 
+                      pill
+                      [text]="communication.status | communicationStatusText"
+                      [statusClass]="communication.status | communicationStatusColor" />
+                  }
+                  <h4 class="message-title">{{ communication.title }}</h4>
+                </div>
+                <div class="message-meta">
+                  <span class="message-person">{{ communication.person }}</span>
+                  <span class="message-date">{{ communication.date }}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="message-content">
+              <p>{{ communication.message }}</p>
+              @if (communication.attachments > 0) {
+                <div class="attachments-info">
+                  <button class="btn btn-small attachments-button">
+                    {{ communication.attachments }} attachments
+                  </button>
+                </div>
+              }
+              @if (shouldShowReplyButton(communication.status)) {
+                <div class="reply-section">
+                  <button class="btn btn-large reply-button" (click)="onReply(communication)">
+                    Reply
+                  </button>
+                </div>
+              }
+            </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+[
+  {
+    "status": 1,
+    "title": "Policy Renewal - Auto Insurance 5/15/25",
+    "date": "Apr 5",
+    "person": "Michael Roberts",
+    "message": "Hello Arthur, I'm reaching out regarding the upcoming auto policy renewal for Real Estate Group LLC. The current policy expires on 6/30/2024. Would you like to review coverage options before proceeding with the renewal? I've attached the current policy details and premium breakdown for your reference.",
+    "attachments": 3
+  },  {
+    "status": 1,
+    "title": "New Quote Request - Workers Comp Insurance",
+    "date": "Apr 3",
+    "person": "Sarah Chen",
+    "message": "Hi Arthur, Real Estate Group has expressed interest in adding workers compensation coverage to their insurance portfolio. I've completed the initial risk assessment based on their operations and employee count. The quote details are attached for your review. \n\nAdditionally, I wanted to provide some context around the current market conditions that may impact our pricing strategy. The workers compensation market has seen significant changes in the past quarter, with several carriers tightening their underwriting guidelines, particularly for construction and manufacturing sectors. \n\nGiven Real Estate Group's excellent safety record and proactive risk management approach, I believe we can offer competitive terms. However, I recommend scheduling a follow-up meeting to discuss the specific coverage limits and deductible options that would best serve their operational needs. \n\nPlease let me know your availability for the coming week so we can finalize the proposal and present it to the client before their current coverage expires.",
+    "attachments": 3
+  },
+  {
+    "status": 2,
+    "title": "Fwd: New Submission - BPM Real Estate - EFF 4/1/24",
+    "date": "Mar 25",
+    "person": "Joshua Dunmire",
+    "message": "Arthur, attached please find our submission for the above mentioned applicant. We have received all necessary documentation and the risk profile looks favorable. Please review at your earliest convenience.",
+    "attachments": 0
+  },
+  {
+    "status": 0,
+    "title": "New Business: BPM Real Estate Group, LLC",
+    "date": "Feb 28",
+    "person": "Isabel Krefler",
+    "message": "Hello Arthur, I am pleased to present you with a submission on this client's #39 s upcoming renewal. The account shows strong performance metrics and represents a significant growth opportunity for our portfolio.",
+    "attachments": 5
+  },
+  {
+    "status": 0,
+    "title": "Claims Update - Marine Cargo Loss",
+    "date": "Feb 15",
+    "person": "David Martinez",
+    "message": "Hi Arthur, Providing an update on the marine cargo claim filed last month. The investigation is complete and we're ready to proceed with settlement. Total loss amount is within expected parameters.",
+    "attachments": 2
+  },
+  {
+    "status": 2,
+    "title": "Premium Adjustment Request",
+    "date": "Feb 10",
+    "person": "Lisa Wong",
+    "message": "Arthur, Following our discussion regarding the mid-term adjustment for BPM Real Estate, I've prepared the endorsement documentation. The premium change reflects the additional exposure we discussed.",
+    "attachments": 1
+  },
+  {
+    "status": 0,
+    "title": "Risk Assessment - Maritime Operations",
+    "date": "Jan 28",
+    "person": "Robert Kim",
+    "message": "Completed the comprehensive risk assessment for the maritime operations division. The report includes recommendations for loss control measures and potential premium adjustments based on current exposure levels.",
+    "attachments": 4
+  },
+  {
+    "status": 1,
+    "title": "Urgent: Policy Cancellation Request",
+    "date": "Jan 20",
+    "person": "Emily Davis",
+    "message": "Arthur, We've received a cancellation request for policy #GL-2024-789. Client is citing competitive pricing concerns. Please advise on retention strategies we might employ to keep this account.",
+    "attachments": 0
+  }
+]
