@@ -90,5 +90,87 @@
     { "item": "Regulatory approval", "completed": true },
     { "item": "Required Documentation", "completed": true },
     { "item": "Financial Verification", "completed": true }
-  ]
+  ],
+  "winnabilityDetails": {
+    "overallScore": {
+      "percentage": 82,
+      "rating": 4
+    },
+    "historicalTrend": [
+      { "month": "Jan", "value": 76 },
+      { "month": "Feb", "value": 78 },
+      { "month": "Mar", "value": 79 },
+      { "month": "Apr", "value": 81 },
+      { "month": "Now", "value": 82 }
+    ],
+    "position": {
+      "yourScore": 82,
+      "marketAverage": 68,
+      "topCompetitor": 88
+    },
+    "increasingFactors": [
+      {
+        "rank": 1,
+        "factor": "Brokers relationship",
+        "percentage": 28,
+        "trend": "positive"
+      },
+      {
+        "rank": 2,
+        "factor": "Loss history",
+        "percentage": 22,
+        "trend": "positive"
+      },
+      {
+        "rank": 3,
+        "factor": "Industry growth",
+        "percentage": 16,
+        "trend": "positive"
+      },
+      {
+        "rank": 4,
+        "factor": "Multiline opportunity",
+        "percentage": 11,
+        "trend": "positive"
+      }
+    ],
+    "decreasingFactors": [
+      {
+        "rank": 1,
+        "factor": "Premium pricing",
+        "percentage": -24,
+        "trend": "negative"
+      },
+      {
+        "rank": 2,
+        "factor": "Total exposure",
+        "percentage": -18,
+        "trend": "negative"
+      },
+      {
+        "rank": 3,
+        "factor": "Loss ratio trend",
+        "percentage": -13,
+        "trend": "negative"
+      },
+      {
+        "rank": 4,
+        "factor": "Market competition",
+        "percentage": -5,
+        "trend": "negative"
+      }
+    ],
+    "aiRecommendations": [
+      {
+        "title": "Offer 5% premium discount in exchange for 3-year commitment",
+        "description": "Historical win rate increases 24% with multi-year commitments. Current pricing is 12% above market average. This approach would strengthen retention while maintaining adequate profitability.",
+        "action": "Apply"
+      },
+      {
+        "title": "Propose risk control services for cargo handling procedures",
+        "description": "Can potentially reduce loss ratio by 15-20% based on similar maritime accounts in your portfolio. Specific focus on loading/unloading operations would address the most frequent claim scenarios.",
+        "action": "Apply"
+      }
+    ]
+  }
 }

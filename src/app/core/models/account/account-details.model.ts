@@ -63,10 +63,49 @@ export interface ComplianceDocumentationItem {
   completed: boolean;
 }
 
+export interface WinnabilityOverallScore {
+  percentage: number;
+  rating: number;
+}
+
+export interface WinnabilityHistoricalTrend {
+  month: string;
+  value: number;
+}
+
+export interface WinnabilityPosition {
+  yourScore: number;
+  marketAverage: number;
+  topCompetitor: number;
+}
+
+export interface WinnabilityFactor {
+  rank: number;
+  factor: string;
+  percentage: number;
+  trend: 'positive' | 'negative';
+}
+
+export interface WinnabilityRecommendation {
+  title: string;
+  description: string;
+  action: string;
+}
+
+export interface WinnabilityDetails {
+  overallScore: WinnabilityOverallScore;
+  historicalTrend: WinnabilityHistoricalTrend[];
+  position: WinnabilityPosition;
+  increasingFactors: WinnabilityFactor[];
+  decreasingFactors: WinnabilityFactor[];
+  aiRecommendations: WinnabilityRecommendation[];
+}
+
 export interface AccountDetails {
   details: AccountDetailsAlert[];
   performanceMetrics: PerformanceMetric[];
   policies: Policy[];
   accountStatus: AccountStatusStep[];
   complianceDocumentation: ComplianceDocumentationItem[];
+  winnabilityDetails?: WinnabilityDetails;
 }

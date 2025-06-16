@@ -1,0 +1,164 @@
+<div class="winnability-details">
+  <div class="winnability-header">
+    <h1 class="winnability-title">Winnability</h1>
+  </div>  <div class="winnability-content">
+    <!-- Top Row: Overall Score, Historical Trend, Position -->
+    <div class="top-section">
+      <!-- Overall Score -->
+      <div class="col-sm-12">
+        <div class="sub-card">
+          <div class="score-label">Overall Score</div>
+          <div class="score-value">
+            <span class="percentage">{{ $winnabilityDetails().overallScore.percentage }}%</span>
+            <app-status-badge 
+              pill
+              outlined
+              [dots]="$winnabilityDetails().overallScore.rating"
+              [text]="$winnabilityDetails().overallScore.rating | winnabilityStatus" 
+              [statusClass]="$winnabilityDetails().overallScore.rating | winnabilityClass">
+            </app-status-badge>
+          </div>
+        </div>
+      </div>
+
+      <!-- Historical Trend -->
+      <div class="col-sm-12">
+        <div class="sub-card">
+          <div class="trend-label">Historical trend</div>
+          <div class="trend-placeholder">
+            <!-- Empty placeholder for now -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Position -->
+      <div class="col-sm-12">
+        <div class="sub-card">
+          <div class="position-label">Position</div>
+          <div class="position-metrics">
+            <div class="position-item">
+              <app-progress-bar
+                small
+                [target]="100"
+                [current]="$winnabilityDetails().position.yourScore"
+                [targetLabel]="'Your score: ' + $winnabilityDetails().position.yourScore + '%'"
+                [statusColor]="StatusColors.Primary"
+                [withPercentage]="false"
+              />
+            </div>
+            <div class="position-item">
+              <app-progress-bar
+                small
+                [target]="100"
+                [current]="$winnabilityDetails().position.marketAverage"
+                [targetLabel]="'Market Avg: ' + $winnabilityDetails().position.marketAverage + '%'"
+                [statusColor]="StatusColors.Primary"
+                [withPercentage]="false"
+              />
+            </div>
+            <div class="position-item">
+              <app-progress-bar
+                small
+                [target]="100"
+                [current]="$winnabilityDetails().position.topCompetitor"
+                [targetLabel]="'Top competitor: ' + $winnabilityDetails().position.topCompetitor + '%'"
+                [statusColor]="StatusColors.Primary"
+                [withPercentage]="false"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    <!-- Factors Section -->
+    <div class="factors-section">
+      <!-- Increasing Winnability -->
+      <div class="col-sm-12">
+        <div class="sub-card">          <div class="factors-header">
+            <app-status-badge
+              circle
+              text="↑"
+              [statusClass]="StatusColors.Success">
+            </app-status-badge>
+            <h3 class="factors-title">Increasing Winnability</h3>
+          </div><div class="factors-list">
+            @for (factor of $winnabilityDetails().increasingFactors; track factor.rank) {
+              <div class="factor-item">
+                <app-status-badge
+                  circle
+                  [text]="factor.rank"
+                  [statusClass]="StatusColors.Success">
+                </app-status-badge>
+                <div class="factor-content">
+                  <div class="factor-label">{{ factor.factor }}</div>
+                  <app-progress-bar
+                    small
+                    [target]="100"
+                    [current]="factor.percentage"
+                    [targetLabel]="''"
+                    [statusColor]="StatusColors.Success"
+                    [withPercentage]="false"
+                  />
+                </div>
+                <div class="factor-percentage positive">+{{ factor.percentage }}%</div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Decreasing Winnability -->
+      <div class="col-sm-12">
+        <div class="sub-card">          <div class="factors-header">
+            <app-status-badge
+              circle
+              text="↓"
+              [statusClass]="StatusColors.Warning">
+            </app-status-badge>
+            <h3 class="factors-title">Decreasing Winnability</h3>
+          </div><div class="factors-list">
+            @for (factor of $winnabilityDetails().decreasingFactors; track factor.rank) {
+              <div class="factor-item">
+                <app-status-badge
+                  circle
+                  [text]="factor.rank"
+                  [statusClass]="StatusColors.Warning">
+                </app-status-badge>
+                <div class="factor-content">
+                  <div class="factor-label">{{ factor.factor }}</div>
+                  <app-progress-bar
+                    small
+                    [target]="100"
+                    [current]="Math.abs(factor.percentage)"
+                    [targetLabel]="''"
+                    [statusColor]="StatusColors.Warning"
+                    [withPercentage]="false"
+                  />
+                </div>
+                <div class="factor-percentage negative">{{ factor.percentage }}%</div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Recommendations Section -->
+    <div class="recommendations-section">
+      <div class="recommendations-header">
+        <div class="ai-icon">🤖</div>
+        <h3 class="recommendations-title">AI-Powered Recommendations</h3>
+      </div>
+      <div class="recommendations-list">
+        @for (recommendation of $winnabilityDetails().aiRecommendations; track $index) {
+          <div class="recommendation-item">
+            <div class="recommendation-content">
+              <div class="recommendation-title">{{ recommendation.title }}</div>
+              <div class="recommendation-description">{{ recommendation.description }}</div>
+            </div>
+            <button class="apply-button">{{ recommendation.action }}</button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

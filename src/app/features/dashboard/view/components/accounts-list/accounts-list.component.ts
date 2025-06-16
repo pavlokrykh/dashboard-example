@@ -6,11 +6,11 @@ import { AccountsListService } from '@dashboard/data-access/services/accounts-li
 import { StatusBadgeComponent } from '@shared/components/status-badge/status-badge.component';
 import { StatusColors } from '@shared/enums/status-colors.enum';
 import { CurrencyFormatPipe } from '@shared/pipes/currency-format.pipe';
+import { WinnabilityClassPipe } from '@shared/pipes/winnability-class.pipe';
+import { WinnabilityStatusPipe } from '@shared/pipes/winnability-status.pipe';
 import { AccountAppetitePipe } from './pipes/account-appetite.pipe';
 import { AccountStatusClassPipe } from './pipes/account-status-class.pipe';
 import { AccountStatusPipe } from './pipes/account-status.pipe';
-import { AccountWinnabilityClassPipe } from './pipes/account-winnability-class.pipe';
-import { AccountWinnabilityPipe } from './pipes/account-winnability.pipe';
 import { LossRatioClassPipe } from './pipes/loss-ratio-class.pipe';
 
 @Component({
@@ -21,8 +21,8 @@ import { LossRatioClassPipe } from './pipes/loss-ratio-class.pipe';
     AccountStatusPipe,
     AccountStatusClassPipe,
     AccountAppetitePipe,
-    AccountWinnabilityPipe,
-    AccountWinnabilityClassPipe,
+    WinnabilityStatusPipe,
+    WinnabilityClassPipe,
     LossRatioClassPipe,
     StatusBadgeComponent,
   ],

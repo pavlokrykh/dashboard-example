@@ -4,15 +4,15 @@
       <!-- Left Navigation Panel -->
       <div class="navigation-panel">
         <app-navigation-tree (nodeSelected)="onNodeSelected($event)" />
-      </div>
-
-      <!-- Main Content Area -->
+      </div>      <!-- Main Content Area -->
       <div class="content-area">
-        @if (showContent()) {
+        @if (showWinnabilityContent() && accountDetails && accountDetails.winnabilityDetails) {
+          <app-winnability-details [winnabilityDetails]="accountDetails.winnabilityDetails" />
+        } @else if (showContent()) {
           <div class="content-placeholder">
-            <!-- Winnability content will go here -->
+            <!-- Other content will go here -->
             <div class="content-text">
-              Winnability content will be displayed here
+              {{ $selectedNode() }} content will be displayed here
             </div>
           </div>
         } @else {

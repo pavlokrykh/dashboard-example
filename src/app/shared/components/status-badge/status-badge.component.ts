@@ -6,7 +6,11 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
   selector: 'app-status-badge',
   imports: [NgClass],
   template: `
-    @if ($pill()) {
+    @if ($circle()) {
+      <span class="status-badge-circle" [ngClass]="[$statusClass()]">
+        {{ $text() }}
+      </span>
+    } @else if ($pill()) {
       <span class="status-badge-pill" [ngClass]="[$statusClass(), $outlined() ? 'outlined' : '']">
         @if ($dots(); as dots) {
           <span class="badge-dots">
@@ -38,6 +42,7 @@ export class StatusBadgeComponent {
   $pill = input(false, { alias: 'pill', transform: booleanAttribute });
   $large = input(false, { alias: 'large', transform: booleanAttribute });
   $outlined = input(false, { alias: 'outlined', transform: booleanAttribute });
+  $circle = input(false, { alias: 'circle', transform: booleanAttribute });
   $dots = input<number | undefined>(undefined, { alias: 'dots' });
 
   $dotArray = computed(() => Array(this.$dots() ?? 0).fill(0));

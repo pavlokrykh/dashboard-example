@@ -3,9 +3,9 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
 import { Winnability } from '@shared/enums/winnability.enum';
 
 @Pipe({
-  name: 'accountWinnabilityClass',
+  name: 'winnabilityClass',
 })
-export class AccountWinnabilityClassPipe implements PipeTransform {
+export class WinnabilityClassPipe implements PipeTransform {
   transform(winnability: Winnability): StatusColors {
     switch (winnability) {
       case Winnability.NotLikely:

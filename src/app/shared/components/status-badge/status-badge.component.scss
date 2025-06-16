@@ -151,3 +151,41 @@
     }
   }
 }
+
+// Circle-style status badge
+.status-badge-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; // Large, bigger than pills
+  height: 40px; // Large, bigger than pills
+  border-radius: 50%; // Perfect circle
+  font-size: 0.875rem;
+  font-weight: $fw-semibold;
+  background: transparent;
+  border: 2px solid currentColor;
+  color: $primary-color; // Default color, similar to outlined
+  flex-shrink: 0;
+  
+  // Status color overrides for circle (same as outlined)
+  &.status-success {
+    color: $status-success-color;
+    border-color: $status-success-color;
+  }
+  &.status-warning {
+    color: $status-warning-color;
+    border-color: $status-warning-color;
+  }
+  &.status-danger {
+    color: $status-danger-color;
+    border-color: $status-danger-color;
+  }
+  &.status-primary {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+  &.status-secondary-darker {
+    color: $secondary-color;
+    border-color: $secondary-color;
+  }
+}

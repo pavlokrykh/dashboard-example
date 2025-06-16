@@ -41,6 +41,7 @@
       }
 
       .group-count {
+        padding: 0.5rem;
         background-color: $border-color;
         color: $text-secondary;
         border-radius: 50%;
@@ -79,6 +80,7 @@
           }
 
           .group-count {
+            padding: 0.5rem;
             background-color: $primary-color;
             color: white;
             border-radius: 50%;

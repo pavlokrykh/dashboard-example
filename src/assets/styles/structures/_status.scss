@@ -28,7 +28,7 @@ $status-colors: (
 }
 
 // Legacy status styles for other components (not status badges or progress bars)
-:not(.status-badge):not(.status-badge-pill):not(.progress-bar) {
+:not(.status-badge):not(.status-badge-pill):not(.status-badge-circle):not(.progress-bar) {
   @each $status, $color in $status-colors {
     &.status-#{$status} {
       background-color: #{$color};
@@ -39,7 +39,7 @@ $status-colors: (
 // Mixin for generating status variants for other components
 @mixin status-variant($property: background-color) {
   @each $status, $color in $status-colors {
-    :not(.status-badge):not(.status-badge-pill):not(.progress-bar).status-#{$status} {
+    :not(.status-badge):not(.status-badge-pill):not(.status-badge-circle):not(.progress-bar).status-#{$status} {
       @if $property == border-bottom-color {
         &-arrow {
           #{$property}: #{$color};
