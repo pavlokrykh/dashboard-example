@@ -45,16 +45,23 @@
             }
           </div>
         </div>
-      }
-
-      <!-- Policies Section -->
+      }      <!-- Policies Section -->
       @if (details.policies.length) {
         <div class="policies-section">
           <h3>Policies</h3>
-          <div class="policies-list">
-            @for (policy of details.policies; track $index) {
-              <app-policy-card [policy]="policy" />
-            }
+          <div class="card">
+            <div class="policies-list">              @for (policy of details.policies; track $index) {
+                <div class="sub-card">
+                  <div class="policy-type">{{ policy.type }}</div>
+                  <div class="policy-premium">Premium: {{ policy.premium | currencyFormat }}</div>
+                  @if (policy.effDate) {
+                    <div class="policy-date">Eff Date: {{ policy.effDate }}</div>
+                  } @else {
+                    <div class="policy-date no-date">Eff Date: ----</div>
+                  }
+                </div>
+              }
+            </div>
           </div>
         </div>
       }

@@ -114,23 +114,46 @@
         grid-template-columns: 1fr;
       }
     }
-  }
-
-  .policies-section {
+  }  .policies-section {
     h3 {
-      font-size: 1.25rem;
+      font-size: 2rem;
       font-weight: $fw-semibold;
       color: $text-primary;
       margin: 0 0 1.5rem 0;
-    }
-
-    .policies-list {
+    }    .policies-list {
       display: flex;
       gap: 1.2rem;
       flex-wrap: wrap;
 
       @media (max-width: 768px) {
         justify-content: center;
+      }
+
+      .sub-card {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .policy-type {
+          font-size: 1rem;
+          font-weight: $fw-semibold;
+          color: $text-primary;
+        }        .policy-premium {
+          font-size: 0.875rem;
+          font-weight: $fw-normal;
+          color: #8A8C98;
+        }
+
+        .policy-date {
+          font-size: 0.875rem;
+          color: #8A8C98;
+          
+          &.no-date {
+            color: #8A8C98;
+          }
+        }
       }
     }
   }

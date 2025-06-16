@@ -19,4 +19,15 @@
     display: flex;
     gap: 1rem;
   }
+
+  .sub-card {
+    border: 1px solid $border-color;
+    border-radius: 1.5rem;
+    background-color: $table-header-bg;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
