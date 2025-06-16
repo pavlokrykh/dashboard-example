@@ -1,0 +1,62 @@
+@use 'variables' as *;
+
+.progress-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .stepper-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+
+    .step-label {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      text-align: center;
+      font-weight: $fw-medium;
+      margin-top: 0.75rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100px;
+    }
+
+    .step-connector {
+      position: absolute;
+      top: 12px;
+      left: calc(50% + 12px);
+      right: calc(-50% + 12px);
+      height: 0;
+      border-top: 2px dashed #8A8B98;
+      z-index: 1;
+
+      &.completed {
+        border-top: 2px dashed $status-success-color;
+      }
+    }
+
+    &.completed {
+      .step-label {
+        color: $text-primary;
+      }
+    }
+
+    &:last-child .step-connector {
+      display: none;
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: $breakpoint-mobile) {
+    .stepper-step {
+      .step-label {
+        font-size: 0.75rem;
+        max-width: 80px;
+      }
+    }
+  }
+}

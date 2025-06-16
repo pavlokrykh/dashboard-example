@@ -1,0 +1,14 @@
+<div class="progress-stepper">
+  @for (step of $steps(); track $index) {
+    <div class="stepper-step" [class.completed]="step.completed">
+      <app-status-circle 
+        [completed]="step.completed" 
+        [dashed]="!step.completed"
+      />
+      <div class="step-label">{{ step.label }}</div>
+      @if ($index < $steps().length - 1) {
+        <div class="step-connector" [class.completed]="step.completed"></div>
+      }
+    </div>
+  }
+</div>
