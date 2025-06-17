@@ -75,16 +75,16 @@
       }
     }
 
-    .trend-placeholder {
-      height: 60px;
+    .trend-chart {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba($border-color, 0.2);
-      border-radius: 8px;
-      color: $text-secondary;
-      font-style: italic;
-      font-size: 0.75rem;
+      align-items: start;
+      justify-content: start;
+      min-height: 100px;
+      
+      app-line-chart {
+        width: 100%;
+        max-width: 280px;
+      }
     }
 
     .position-metrics {

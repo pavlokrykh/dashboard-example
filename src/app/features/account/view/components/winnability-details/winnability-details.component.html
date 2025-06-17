@@ -25,8 +25,11 @@
       <div class="col-sm-12">
         <div class="sub-card">
           <div class="trend-label">Historical trend</div>
-          <div class="trend-placeholder">
-            <!-- Empty placeholder for now -->
+          <div class="trend-chart">
+            <app-line-chart 
+              [data]="historicalTrendData()" 
+              [chartConfig]="chartConfig">
+            </app-line-chart>
           </div>
         </div>
       </div>
