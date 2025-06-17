@@ -7,7 +7,7 @@ import { IconService } from '@shared/services/icon.service';
 @Component({
   selector: 'app-icon',
   imports: [CommonModule],
-  template: '<span [innerHTML]="$svgIcon()"></span>',
+  template: '<span class="icon" [innerHTML]="$svgIcon()"></span>',
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

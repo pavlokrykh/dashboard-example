@@ -6,6 +6,9 @@
         routerLinkActive="active"
         class="btn-tab btn-tab-large"
         [class.disabled]="tab.disabled">
+        @if (tab.icon) {
+          <app-icon [name]="tab.icon"></app-icon>
+        }
         {{ tab.label }}
       </a>
     }

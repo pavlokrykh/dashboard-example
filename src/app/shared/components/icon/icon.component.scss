@@ -1,0 +1,39 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  
+  :deep(svg) {
+    width: 100%;
+    height: 100%;
+    
+    path {
+      stroke: currentColor;
+      fill: currentColor;
+    }
+    
+    // Handle other common SVG elements
+    circle, rect, line, polyline, polygon {
+      stroke: currentColor;
+      fill: currentColor;
+    }
+    
+    // For outline icons, keep fill as none but use currentColor for stroke
+    &[fill="none"] path,
+    &[fill="none"] circle,
+    &[fill="none"] rect,
+    &[fill="none"] line,
+    &[fill="none"] polyline,
+    &[fill="none"] polygon {
+      fill: none;
+      stroke: currentColor;
+    }
+  }
+}

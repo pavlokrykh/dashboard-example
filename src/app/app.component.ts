@@ -15,11 +15,11 @@ export class AppComponent {
   private readonly loginService = inject(LoginService);
 
   readonly navigationTabs: NavigationTab[] = [
-    { label: 'Dashboard', route: '/dashboard' },
-    { label: 'Accounts', route: '/account' },
-    { label: 'Brokers', route: '/brokers' },
-    { label: 'Submissions', route: '/submissions' },
-    { label: 'Organizations', route: '/organizations' },
+    { label: 'Dashboard', route: '/dashboard', icon: 'home' },
+    { label: 'Accounts', route: '/account', icon: 'accounts' },
+    { label: 'Brokers', route: '/brokers', icon: 'brokers' },
+    { label: 'Submissions', route: '/submissions', icon: 'submissions' },
+    { label: 'Organizations', route: '/organizations', icon: 'organizations' },
     { label: 'Goals & Rules', route: '/goals-rules' },
     { label: 'Reports', route: '/reports' },
     { label: 'Analytics', route: '/analytics' },

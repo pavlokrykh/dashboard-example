@@ -2,7 +2,7 @@
 
 .navbar {
   background-color: $body-bg;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   overflow-x: auto;
   
   &::-webkit-scrollbar {
@@ -24,11 +24,17 @@
     align-items: center;
     min-width: fit-content;
     padding-bottom: 0.25rem; // Space for scrollbar
-  }
-
-  .btn-tab {
+  }  .btn-tab {
     flex-shrink: 0; // Prevent tabs from shrinking
     white-space: nowrap; // Prevent text wrapping
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    app-icon {
+      width: 16px;
+      height: 16px;
+    }
     
     &.disabled {
       opacity: 0.5;
