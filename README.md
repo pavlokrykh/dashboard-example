@@ -1,5 +1,18 @@
 # DashboardExample
 
+**🚀 Hosted Preview:** [dashboard-example-pk.web.app](https://dashboard-example-pk.web.app)
+
+## Technologies Used
+- **Angular 20** - Modern web framework
+- **NgRx Signals v19** - State management library
+
+## AI Tools Used
+- **GitHub Copilot** with Claude Sonnet 4
+- **GPT-4o-mini**
+- **Gemini 2.5 Pro**
+
+---
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
 
 ## Development server

@@ -1,6 +1,24 @@
 @use 'variables' as *;
 @use 'sass:color';
 
+// Title section with search
+.card-title {
+  .title-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    span {
+      font-size: 1.125rem;
+      font-weight: $fw-semibold;
+      color: $text-primary;
+    }
+    app-search {
+      display: flex;
+    }
+  }
+}
+
 // Table column width definitions
 table {
   th, td {

@@ -1,6 +1,14 @@
 <div class="card">
     <span class="card-title">
-    My accounts
+    <div class="title-section">
+      <span>My accounts</span>
+      <app-search 
+        outline
+        small
+        [width]="200"
+        placeholder="Search accounts..." 
+        (searchValue)="onSearchChange($event)" />
+    </div>
     <div class="actions">
       <button class="btn-outlined">Filter</button>
       <button class="btn-outlined">Sort</button>
@@ -28,7 +36,7 @@
         </tr>
       </thead>
       <tbody>
-        @for (account of $accountsList(); track account.id) {
+        @for (account of $filteredAccounts(); track account.id) {
           <tr>
             <td class="account-name-cell">
               <div class="account-name">{{ account.accountName }}</div>

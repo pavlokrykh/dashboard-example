@@ -1,8 +1,9 @@
 import { PercentPipe } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IAccountListItem } from '@core/models/dashboard/accounts-list.model';
 import { AccountsListService } from '@dashboard/data-access/services/accounts-list.service';
+import { SearchComponent } from '@shared/components/search/search.component';
 import { StatusBadgeComponent } from '@shared/components/status-badge/status-badge.component';
 import { SkeletonDirective } from '@shared/directives/skeleton.directive';
 import { StatusColors } from '@shared/enums/status-colors.enum';
@@ -26,6 +27,7 @@ import { AccountStatusPipe } from './pipes/account-status.pipe';
     WinnabilityClassPipe,
     LossRatioClassPipe,
     StatusBadgeComponent,
+    SearchComponent,
     SkeletonDirective,
   ],
   templateUrl: './accounts-list.component.html',
@@ -38,11 +40,33 @@ export class AccountsListComponent {
   readonly $isLoading = this.accountsListService.$isLoading;
 
   readonly $accountsList = signal<IAccountListItem[]>([]);
+  readonly $searchValue = signal<string>('');
+
+  readonly $filteredAccounts = computed(() => {
+    const searchValue = this.$searchValue().toLowerCase();
+    const accounts = this.$accountsList();
+
+    if (!searchValue) {
+      return accounts;
+    }
+
+    return accounts.filter(
+      (account) => 
+        account.accountName.toLowerCase().includes(searchValue) || 
+        account.accountType.toLowerCase().includes(searchValue) ||
+        account.line.toLowerCase().includes(searchValue) ||
+        account.broker.toLowerCase().includes(searchValue)
+    );
+  });
 
   readonly StatusColors = StatusColors;
 
   constructor() {
     this.getAccountsList();
+  }
+
+  onSearchChange(searchValue: string): void {
+    this.$searchValue.set(searchValue);
   }
 
   private getAccountsList() {
