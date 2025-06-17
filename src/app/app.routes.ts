@@ -14,4 +14,8 @@ export const routes: Routes = [
     path: 'account',
     loadComponent: () => import('@account/view/page/account.component').then((m) => m.AccountComponent),
   },
+  {
+    path: '**',
+    loadComponent: () => import('./features/not-found/view/page/not-found.component').then((m) => m.NotFoundComponent),
+  },
 ];

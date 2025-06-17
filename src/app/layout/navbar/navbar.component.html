@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <div class="navbar-content">
+    @for (tab of $tabs(); track tab.route) {
+      <a 
+        [routerLink]="tab.route" 
+        routerLinkActive="active"
+        class="btn-tab btn-tab-large"
+        [class.disabled]="tab.disabled">
+        {{ tab.label }}
+      </a>
+    }
+  </div>
+</nav>

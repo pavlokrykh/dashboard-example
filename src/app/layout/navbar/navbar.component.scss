@@ -1,0 +1,39 @@
+@use 'variables' as *;
+
+.navbar {
+  background-color: $body-bg;
+  padding-bottom: 1rem;
+  overflow-x: auto;
+  
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba($border-color, 0.3);
+    border-radius: 2px;
+  }
+    &::-webkit-scrollbar-thumb {
+    background: $border-color;
+    border-radius: 2px;
+  }
+
+  .navbar-content {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    min-width: fit-content;
+    padding-bottom: 0.25rem; // Space for scrollbar
+  }
+
+  .btn-tab {
+    flex-shrink: 0; // Prevent tabs from shrinking
+    white-space: nowrap; // Prevent text wrapping
+    
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}
