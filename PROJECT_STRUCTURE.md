@@ -136,14 +136,14 @@ export class TaskListComponent implements OnInit, OnDestroy {
 
 ### Naming Conventions
 
-1. **Signal naming**: All signals must be named with a $ prefix
-   - Input signals: `$name = input<string>('Default');`
-   - Regular signals: `$isLoading = signal<boolean>(false);`
-   - Computed signals: `$filteredItems = computed(() => {...});`
+1. **Signal naming**: All signals must be named with a <code>`$`</code> prefix.  
+   - **Input signals**: <code>$name = input&lt;string&gt;('Default');</code>
+   - **Regular signals**: <code>$isLoading = signal&lt;boolean&gt;(false);</code>
+   - **Computed signals**: <code>$filteredItems = computed(() =&gt; {...});</code>
+   - **Exception**: Signals in store files should not use the <code>`$`</code> prefix.
 
-2. **Observable naming**: All observables must end with a $ suffix
-   - `searchResults$ = this.service.search(term);`
-   - `items$ = this.http.get<Item[]>('/api/items');`
+2. **Observable naming**: All observables must end with a <code>`$`</code> suffix.  
+   - **Exception**: Functions that return Observables or signals should not have a <code>`$`</code> suffix.
 
 3. **Enum naming**: All enums must use PascalCase (e.g., `StatusType`, `UserRole`).
 

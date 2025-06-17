@@ -1,10 +1,10 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-dots-indicator',
   template: `
     <div class="dots-indicator">
-      @for (dot of dotArray; track $index) {
+      @for (dot of $dotArray(); track $index) {
         <span class="dot" [class.filled]="$index < $level()"></span>
       }
     </div>
@@ -34,9 +34,9 @@ import { Component, input } from '@angular/core';
 export class DotsIndicatorComponent {
   $level = input.required<number>({ alias: 'level' });
   $maxDots = input<number>(4, { alias: 'maxDots' });
-  get dotArray(): number[] {
-    return Array(this.$maxDots())
+  $dotArray = computed(() =>
+    Array(this.$maxDots())
       .fill(0)
-      .map((_, i) => i);
-  }
+      .map((_, i) => i),
+  );
 }

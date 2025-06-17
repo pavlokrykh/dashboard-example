@@ -37,7 +37,6 @@ export class PortfolioGoalsComponent {
   readonly $newBusinessTarget = signal<NewBusinessTarget | null>(null);
   readonly $annualGwpTarget = signal<AnnualGwpTarget | null>(null);
 
-  // Status colors enum for template use
   readonly StatusColors = StatusColors;
 
   constructor() {

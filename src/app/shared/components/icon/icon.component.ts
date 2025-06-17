@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, input, signal } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 
 import { IconService } from '@shared/services/icon.service';
@@ -12,13 +12,12 @@ import { IconService } from '@shared/services/icon.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent implements OnInit {
-  @Input({ required: true }) name!: string;
-
   private readonly iconService = inject(IconService);
 
+  $name = input.required<string>({ alias: 'name' });
   readonly $svgIcon = signal<SafeHtml | undefined>(undefined);
 
   ngOnInit(): void {
-    this.iconService.getIcon(this.name).subscribe((svg: SafeHtml) => this.$svgIcon.set(svg));
+    this.iconService.getIcon(this.$name()).subscribe((svg: SafeHtml) => this.$svgIcon.set(svg));
   }
 }

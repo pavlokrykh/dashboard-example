@@ -31,12 +31,10 @@ import { PolicyStatusPipe } from './pipes/policy-status.pipe';
 export class PoliciesListComponent {
   private readonly policiesService = inject(PoliciesService);
 
-  readonly StatusColors = StatusColors;
+  readonly $policiesList = signal<IPolicy[]>([]);
+  readonly $searchValue = signal<string>('');
 
-  $policiesList = signal<IPolicy[]>([]);
-  $searchValue = signal<string>('');
-
-  $filteredPolicies = computed(() => {
+  readonly $filteredPolicies = computed(() => {
     const searchValue = this.$searchValue().toLowerCase();
     const policies = this.$policiesList();
 
@@ -48,7 +46,8 @@ export class PoliciesListComponent {
       (policy) => policy.line.toLowerCase().includes(searchValue) || policy.id.toLowerCase().includes(searchValue),
     );
   });
-  $totals = computed(() => {
+
+  readonly $totals = computed(() => {
     const policies = this.$filteredPolicies();
 
     const totals = policies.reduce(
@@ -96,12 +95,16 @@ export class PoliciesListComponent {
     };
   });
 
+  readonly StatusColors = StatusColors;
+
   constructor() {
     this.getPoliciesList();
   }
+
   onSearchChange(searchValue: string): void {
     this.$searchValue.set(searchValue);
   }
+
   getLossRatioDecimal(lossRatio: number | null): number {
     return lossRatio ? lossRatio / 100 : 0;
   }

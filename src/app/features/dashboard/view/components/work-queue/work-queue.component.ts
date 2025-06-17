@@ -23,12 +23,11 @@ export enum WorkQueueTab {
 })
 export class WorkQueueComponent {
   private readonly workQueueService = inject(WorkQueueService);
-
-  // Use the route fragment utility
   private readonly routeFragment = useRouteFragment<WorkQueueTab>({
     defaultValue: WorkQueueTab.Assigned,
     fragmentMapper: (fragment) => this.getTabFromFragment(fragment),
   });
+
   readonly $activeTab = this.routeFragment.$fragment;
   readonly $tasks = this.workQueueService.$filteredTasks;
 
@@ -46,7 +45,7 @@ export class WorkQueueComponent {
     }
   });
 
-  readonly WorkQueueTab = WorkQueueTab; // Expose enum to template
+  readonly WorkQueueTab = WorkQueueTab;
 
   constructor() {
     this.workQueueService.getWorkQueue().pipe(takeUntilDestroyed()).subscribe();

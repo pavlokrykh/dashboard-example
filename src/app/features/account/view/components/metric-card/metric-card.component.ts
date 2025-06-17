@@ -17,11 +17,11 @@ export class MetricCardComponent {
   readonly StatusColors = StatusColors;
   readonly MetricType = MetricType;
   readonly WinnabilityLevel = WinnabilityLevel;
-
   getWinnabilityLevel(): number {
     const winnability = this.$metric().winnability;
     return winnability || 0;
   }
+
   getWinnabilityStatusClass(): StatusColors {
     const winnability = this.$metric().winnability;
     if (winnability === 4) return StatusColors.Success; // Very Strong

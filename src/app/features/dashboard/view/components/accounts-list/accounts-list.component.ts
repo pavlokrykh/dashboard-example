@@ -33,9 +33,9 @@ import { AccountStatusPipe } from './pipes/account-status.pipe';
 export class AccountsListComponent {
   private readonly accountsListService = inject(AccountsListService);
 
-  readonly StatusColors = StatusColors;
+  readonly $accountsList = signal<IAccountListItem[]>([]);
 
-  $accountsList = signal<IAccountListItem[]>([]);
+  readonly StatusColors = StatusColors;
 
   constructor() {
     this.getAccountsList();

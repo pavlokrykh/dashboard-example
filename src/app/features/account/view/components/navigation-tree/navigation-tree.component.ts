@@ -25,11 +25,6 @@ export class NavigationTreeComponent {
 
   readonly nodeSelected = output<string>();
 
-  constructor() {
-    // Emit initial selection
-    this.nodeSelected.emit('winnability');
-  }
-
   readonly navigationGroups: NavigationGroup[] = [
     {
       id: 'decision-support',
@@ -62,6 +57,10 @@ export class NavigationTreeComponent {
       ],
     },
   ];
+
+  constructor() {
+    this.nodeSelected.emit('winnability');
+  }
 
   onGroupClick(groupId: string): void {
     if (this.$activeGroup() === groupId) {
