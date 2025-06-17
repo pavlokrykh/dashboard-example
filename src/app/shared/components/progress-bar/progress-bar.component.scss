@@ -53,13 +53,11 @@
     align-items: center;
     justify-content: flex-end;
     padding-right: 12px;
-    transition: width 0s ease;
     z-index: 2;
     
     // Ensure hover transition works properly
     &.bar-hover-enlarge {
-      // Don't override the transition from the shared class
-      transition: width 0s ease, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       
       &:hover {
         border-radius: 0 16px 16px 0;

@@ -1,5 +1,5 @@
 @use 'variables' as *;
-@use 'structures/table';
+@use 'components/table';
 
 :host {
   display: flex;
