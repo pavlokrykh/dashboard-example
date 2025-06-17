@@ -1,7 +1,7 @@
+import { AiRecommendationsComponent } from '@account/view/components/ai-recommendations/ai-recommendations.component';
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { WinnabilityDetails } from '@core/models/account/account-details.model';
-import { AiRecommendationsComponent } from '@shared/components/ai-recommendations/ai-recommendations.component';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 import { StatusBadgeComponent } from '@shared/components/status-badge/status-badge.component';
 import { StatusColors } from '@shared/enums/status-colors.enum';
