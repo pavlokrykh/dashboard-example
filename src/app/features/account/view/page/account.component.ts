@@ -2,6 +2,7 @@ import { AccountDetailsService } from '@account/data-access/services/account-det
 import { AlertCardComponent } from '@account/view/components/alert-card/alert-card.component';
 import { MetricCardComponent } from '@account/view/components/metric-card/metric-card.component';
 import { PoliciesListComponent } from '@account/view/components/policies-list/policies-list.component';
+import { PoliciesTableComponent } from '@account/view/components/policies-table/policies-table.component';
 import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 // eslint-disable-next-line max-len
@@ -10,8 +11,6 @@ import { AccountsDetailsComponent } from '@account/view/components/accounts-deta
 import { CommunicationComponent } from '@account/view/components/communication/communication.component';
 // eslint-disable-next-line max-len
 import { ComplianceDocumentationComponent } from '@account/view/components/compliance-documentation/compliance-documentation.component';
-// eslint-disable-next-line max-len
-import { PoliciesListComponent as DashboardPoliciesListComponent } from '@dashboard/view/components/policies-list/policies-list.component';
 import { SkeletonDirective } from '@shared/directives/skeleton.directive';
 
 @Component({
@@ -20,11 +19,11 @@ import { SkeletonDirective } from '@shared/directives/skeleton.directive';
     AlertCardComponent,
     MetricCardComponent,
     PoliciesListComponent,
+    PoliciesTableComponent,
     AccountStatusProgressComponent,
     ComplianceDocumentationComponent,
     AccountsDetailsComponent,
     CommunicationComponent,
-    DashboardPoliciesListComponent,
     SkeletonDirective,
   ],
   templateUrl: './account.component.html',

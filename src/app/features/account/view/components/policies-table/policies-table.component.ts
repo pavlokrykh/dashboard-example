@@ -9,11 +9,12 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
 import { CurrencyFormatPipe } from '@shared/pipes/currency-format.pipe';
 import { LossRatioClassPipe } from '@shared/pipes/loss-ratio-class.pipe';
 import { ValuePlaceholderPipe } from '@shared/pipes/value-placeholder.pipe';
-import { PolicyStatusClassPipe } from './pipes/policy-status-class.pipe';
-import { PolicyStatusPipe } from './pipes/policy-status.pipe';
+import { PolicyStatusClassPipe } from '../policies-list/pipes/policy-status-class.pipe';
+import { PolicyStatusPipe } from '../policies-list/pipes/policy-status.pipe';
 
 @Component({
-  selector: 'app-dashboard-policies-list',
+  selector: 'app-policies-table',
+  standalone: true,
   imports: [
     PercentPipe,
     CurrencyFormatPipe,
@@ -24,11 +25,11 @@ import { PolicyStatusPipe } from './pipes/policy-status.pipe';
     SearchComponent,
     ValuePlaceholderPipe,
   ],
-  templateUrl: './policies-list.component.html',
-  styleUrls: ['./policies-list.component.scss'],
+  templateUrl: './policies-table.component.html',
+  styleUrls: ['./policies-table.component.scss'],
   providers: [PoliciesService],
 })
-export class PoliciesListComponent {
+export class PoliciesTableComponent {
   private readonly policiesService = inject(PoliciesService);
 
   readonly $policiesList = signal<IPolicy[]>([]);
@@ -123,4 +124,4 @@ export class PoliciesListComponent {
         },
       });
   }
-}
+} 

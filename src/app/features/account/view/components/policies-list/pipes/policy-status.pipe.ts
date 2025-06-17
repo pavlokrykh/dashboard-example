@@ -3,9 +3,10 @@ import { POLICY_STATUS_TRANSLATIONS, PolicyStatus } from '@shared/enums/policy-s
 
 @Pipe({
   name: 'policyStatus',
+  standalone: true
 })
 export class PolicyStatusPipe implements PipeTransform {
   transform(status: PolicyStatus): string {
     return POLICY_STATUS_TRANSLATIONS[status] || 'Unknown';
   }
-}
+} 

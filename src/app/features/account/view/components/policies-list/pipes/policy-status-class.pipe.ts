@@ -4,6 +4,7 @@ import { StatusColors } from '@shared/enums/status-colors.enum';
 
 @Pipe({
   name: 'policyStatusClass',
+  standalone: true
 })
 export class PolicyStatusClassPipe implements PipeTransform {
   transform(status: PolicyStatus): StatusColors {
@@ -16,4 +17,4 @@ export class PolicyStatusClassPipe implements PipeTransform {
         return StatusColors.SecondaryDarker;
     }
   }
-}
+} 
