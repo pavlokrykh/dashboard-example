@@ -2,7 +2,7 @@ import { AccountDetailsService } from '@account/data-access/services/account-det
 import { AlertCardComponent } from '@account/view/components/alert-card/alert-card.component';
 import { MetricCardComponent } from '@account/view/components/metric-card/metric-card.component';
 import { PoliciesListComponent } from '@account/view/components/policies-list/policies-list.component';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 // eslint-disable-next-line max-len
 import { AccountStatusProgressComponent } from '@account/view/components/account-status-progress/account-status-progress.component';
@@ -12,6 +12,7 @@ import { CommunicationComponent } from '@account/view/components/communication/c
 import { ComplianceDocumentationComponent } from '@account/view/components/compliance-documentation/compliance-documentation.component';
 // eslint-disable-next-line max-len
 import { PoliciesListComponent as DashboardPoliciesListComponent } from '@dashboard/view/components/policies-list/policies-list.component';
+import { SkeletonDirective } from '@shared/directives/skeleton.directive';
 
 @Component({
   selector: 'app-account',
@@ -24,6 +25,7 @@ import { PoliciesListComponent as DashboardPoliciesListComponent } from '@dashbo
     AccountsDetailsComponent,
     CommunicationComponent,
     DashboardPoliciesListComponent,
+    SkeletonDirective,
   ],
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],
@@ -32,21 +34,10 @@ import { PoliciesListComponent as DashboardPoliciesListComponent } from '@dashbo
 export class AccountComponent {
   private readonly accountDetailsService = inject(AccountDetailsService);
 
-  readonly $accountDetails = signal(this.accountDetailsService.$accountDetails());
+  readonly $isLoading = this.accountDetailsService.$isLoading;
+  readonly $accountDetails = this.accountDetailsService.$accountDetails;
 
   constructor() {
-    this.getAccountDetails();
-  }
-
-  private getAccountDetails() {
-    this.accountDetailsService
-      .getAccountDetails()
-      .pipe(takeUntilDestroyed())
-      .subscribe((data) => {
-        console.log('Account details fetched:', data);
-
-        this.accountDetailsService.$accountDetails.set(data);
-        this.$accountDetails.set(data);
-      });
+    this.accountDetailsService.getAccountDetails().pipe(takeUntilDestroyed()).subscribe();
   }
 }

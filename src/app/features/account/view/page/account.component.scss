@@ -1,9 +1,15 @@
 @use 'variables' as *;
 
+:host {
+  display: block;
+  height: calc(100vh - 181px);
+}
+
 .account-details-page {
   background: $body-bg;
   color: $text-primary;
-  min-height: 100vh;
+  margin-top: 1rem;
+  height: 100%;
 
   .account-details-main {
     display: flex;
@@ -171,4 +177,32 @@
       flex: 1;
     }
   }
+
+  // // Skeleton container styles
+  // .skeleton-container {
+  //   min-height: inherit;
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+
+  // .needs-attention {
+  //   min-height: 200px;
+  // }
+
+  // .metrics-grid {
+  //   min-height: 150px;
+  // }
+
+  // .policies-row > div {
+  //   min-height: 300px;
+  // }
+
+  // .account-status-section,
+  // .compliance-documentation-section {
+  //   min-height: 250px;
+  // }
+
+  // .account-details-section {
+  //   min-height: 300px;
+  // }
 }

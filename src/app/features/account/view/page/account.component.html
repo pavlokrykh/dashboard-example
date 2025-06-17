@@ -1,4 +1,4 @@
-<div class="account-details-page">
+<div class="account-details-page" *appSkeleton="$isLoading()">
   @if ($accountDetails(); as details) {
     <div class="account-details-main">      <!-- Account Summary Section -->
       <div class="row account-summary-row">

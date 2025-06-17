@@ -2,6 +2,7 @@
   height: 600px;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1rem;
   
   > section {
     flex: 1 1 auto;   // allow grid columns to flex within dashboard
