@@ -1,7 +1,8 @@
 <div class="card">
   <span class="card-title">Portfolio goals</span>
 
-  @if ($lossRatioTarget(); as data) {
+  <div *appSkeleton="$isLoading()">
+    @if ($lossRatioTarget(); as data) {
     <div class="portfolio-goal">
       <div class="goal-header">
         <span class="goal-title">PORTFOLIO LOSS RATIO TARGET</span>
@@ -34,7 +35,8 @@
         [targetDisplayValue]="'TG:' + ((data.targetMin * 100) | number:'1.0-0') + '-' + ((data.targetMax * 100) | number:'1.0-0') + '%'"
         statusDisplayValue="ON TARGET">
       </app-status-bar>
-    </div>  }
+    </div>
+  }
 
   @if ($newBusinessTarget(); as data) {
     <div class="portfolio-goal">
@@ -69,4 +71,5 @@
       </app-progress-bar>
     </div>
   }
+  </div>
 </div>

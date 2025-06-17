@@ -8,9 +8,9 @@ import { WorkQueueClient } from 'src/app/core/api/dashboard/work-queue.client';
 export class WorkQueueService {
   private readonly workQueueClient = inject(WorkQueueClient);
   private readonly workQueueStore = inject(WorkQueueStore);
-
   readonly $tasks = this.workQueueStore.tasks;
   readonly $filteredTasks = this.workQueueStore.filteredTasks;
+  readonly $isLoading = this.workQueueStore.isLoading;
 
   getWorkQueue(): Observable<IWorkQueueItem[]> {
     this.workQueueStore.setLoading(true);

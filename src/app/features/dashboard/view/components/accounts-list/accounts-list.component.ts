@@ -4,6 +4,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IAccountListItem } from '@core/models/dashboard/accounts-list.model';
 import { AccountsListService } from '@dashboard/data-access/services/accounts-list.service';
 import { StatusBadgeComponent } from '@shared/components/status-badge/status-badge.component';
+import { SkeletonDirective } from '@shared/directives/skeleton.directive';
 import { StatusColors } from '@shared/enums/status-colors.enum';
 import { CurrencyFormatPipe } from '@shared/pipes/currency-format.pipe';
 import { LossRatioClassPipe } from '@shared/pipes/loss-ratio-class.pipe';
@@ -25,6 +26,7 @@ import { AccountStatusPipe } from './pipes/account-status.pipe';
     WinnabilityClassPipe,
     LossRatioClassPipe,
     StatusBadgeComponent,
+    SkeletonDirective,
   ],
   templateUrl: './accounts-list.component.html',
   styleUrls: ['./accounts-list.component.scss'],
@@ -32,6 +34,8 @@ import { AccountStatusPipe } from './pipes/account-status.pipe';
 })
 export class AccountsListComponent {
   private readonly accountsListService = inject(AccountsListService);
+
+  readonly $isLoading = this.accountsListService.$isLoading;
 
   readonly $accountsList = signal<IAccountListItem[]>([]);
 

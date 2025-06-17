@@ -29,6 +29,10 @@ table {
   }
 }
 
+.card {
+  min-height: 300px;
+}
+
 .actions {
   display: flex;
   gap: 0.5rem;

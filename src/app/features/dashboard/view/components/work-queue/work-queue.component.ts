@@ -4,6 +4,7 @@ import { TaskType, WorkQueueStatus } from '@core/models/dashboard/work-queue-ite
 import { WorkQueueService } from '@dashboard/data-access/services/work-queue.service';
 import { ProfileCircleComponent } from '@shared/components/profile-circle/profile-circle.component';
 import { StatusBadgeComponent } from '@shared/components/status-badge/status-badge.component';
+import { SkeletonDirective } from '@shared/directives/skeleton.directive';
 import { useRouteFragment } from '@shared/utils/route-fragment.util';
 import { WorkQueueStatusClassPipe } from './pipes/work-queue-status-class.pipe';
 import { WorkQueueStatusPipe } from './pipes/work-queue-status.pipe';
@@ -16,7 +17,13 @@ export enum WorkQueueTab {
 
 @Component({
   selector: 'app-work-queue',
-  imports: [ProfileCircleComponent, WorkQueueStatusPipe, WorkQueueStatusClassPipe, StatusBadgeComponent],
+  imports: [
+    ProfileCircleComponent,
+    WorkQueueStatusPipe,
+    WorkQueueStatusClassPipe,
+    StatusBadgeComponent,
+    SkeletonDirective,
+  ],
   templateUrl: './work-queue.component.html',
   styleUrls: ['./work-queue.component.scss'],
   providers: [WorkQueueService],
@@ -30,6 +37,7 @@ export class WorkQueueComponent {
 
   readonly $activeTab = this.routeFragment.$fragment;
   readonly $tasks = this.workQueueService.$filteredTasks;
+  readonly $isLoading = this.workQueueService.$isLoading;
 
   readonly $pendingTasks = computed(() => this.$tasks().filter((task) => task.status === WorkQueueStatus.Pending));
   readonly $referralTasks = computed(() => this.$tasks().filter((task) => task.type === TaskType.Underwriter));

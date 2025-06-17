@@ -1,7 +1,7 @@
 <div class="market-intelligence card">
   <div class="card-title">Market intelligence</div>
   
-  <div class="market-intelligence-list">
+  <div class="market-intelligence-list" *appSkeleton="$isLoading()">
     @for (item of $marketIntelligenceItems(); track item.value) {
       <div class="market-intelligence-item">
         <app-status-badge

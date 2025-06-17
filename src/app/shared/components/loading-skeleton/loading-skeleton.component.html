@@ -1,0 +1,10 @@
+<div class="skeleton-container">
+  @for (item of Array($count()); track $index) {
+    <div 
+      class="skeleton-item" 
+      [style.height]="$height()"
+      [style.width]="$width()"
+      [style.border-radius]="$borderRadius()">
+    </div>
+  }
+</div>
