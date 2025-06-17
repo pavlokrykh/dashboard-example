@@ -2,15 +2,14 @@
   <h3>Policies</h3>  <div class="card">
     <span class="card-title">
       <div class="title-section">
-        <span>Policies</span>        <app-search 
-          placeholder="Search policies..." 
-          [width]="300"
+        <app-search 
           outline
+          small
+          [width]="200"
+          placeholder="Search policies..." 
           (searchValue)="onSearchChange($event)" />
-      </div>
-      <div class="actions">
-        <button class="btn-outlined">Filter</button>
-        <button class="btn-outlined">Group</button>
+        <button class="btn-outlined btn-small">Filter</button>
+        <button class="btn-outlined btn-small">Group</button>
       </div>
     </span>
   
@@ -54,22 +53,17 @@
             <td class="amount-cell">{{ policy.expiringPremium | currencyFormat }}</td>
             <td class="amount-cell">{{ policy.renewalToTech | currencyFormat }}</td>
             <td class="amount-cell">{{ policy.renewalTech | currencyFormat }}</td>
-            <td class="amount-cell">{{ policy.renewalPremium | currencyFormat }}</td>
-            <td class="rate-change-cell" [class]="policy.rateChange !== null ? (policy.rateChange >= 0 ? 'positive' : 'negative') : ''">
-              @if (policy.rateChange !== null) {
-                {{ (policy.rateChange / 100) | percent:'1.1-1' }}
-              } @else {
-                N/A
-              }
+            <td class="amount-cell">{{ policy.renewalPremium | currencyFormat }}</td>            <td class="rate-change-cell" [class]="policy.rateChange !== null ? (policy.rateChange >= 0 ? 'positive' : 'negative') : ''">
+              {{ policy.rateChange !== null ? ((policy.rateChange / 100) | percent:'1.1-1') : null | valuePlaceholder }}
             </td>            <td class="loss-ratio-column">
               @if (policy.lossRatio !== null) {
                 <app-status-badge 
                   pill
-                  [text]="getLossRatioText(policy.lossRatio)"
+                  [text]="policy.lossRatio + '%'"
                   [statusClass]="getLossRatioDecimal(policy.lossRatio) | lossRatioClass">
                 </app-status-badge>
               } @else {
-                <span>N/A</span>
+                <span>{{ null | valuePlaceholder }}</span>
               }
             </td>
             <td class="actions-column">
@@ -79,27 +73,25 @@
             </td>
           </tr>        }
       </tbody>
-      <tbody class="totals-section">
-        <tr class="totals-row">
-          <td class="total-label">TOTAL ({{ $filteredPolicies().length }})</td>
+      <tbody class="totals-section">        <tr class="totals-row">
+          <td class="total-label">TOTAL ({{ $totals().count }})</td>
           <td></td>
           <td></td>
           <td></td>
-          <td class="amount-cell">{{ getTotalExpiringTech() | currencyFormat }}</td>
-          <td class="amount-cell">{{ getTotalExpiringPremium() | currencyFormat }}</td>
-          <td class="amount-cell">{{ getTotalRenewalToTech() | currencyFormat }}</td>
-          <td class="amount-cell">{{ getTotalRenewalTech() | currencyFormat }}</td>
-          <td class="amount-cell">{{ getTotalRenewalPremium() | currencyFormat }}</td>
-          <td class="rate-change-cell">{{ getAverageRateChange() }}%</td>
+          <td class="amount-cell">{{ $totals().expiringTech | currencyFormat }}</td>
+          <td class="amount-cell">{{ $totals().expiringPremium | currencyFormat }}</td>
+          <td class="amount-cell">{{ $totals().renewalToTech | currencyFormat }}</td>
+          <td class="amount-cell">{{ $totals().renewalTech | currencyFormat }}</td>
+          <td class="amount-cell">{{ $totals().renewalPremium | currencyFormat }}</td>          <td class="rate-change-cell">{{ formatPercentage($totals().averageRateChange) }}</td>
           <td class="loss-ratio-column">
             <app-status-badge 
               pill
-              [text]="getAverageLossRatio() + '%'"
+              [text]="formatPercentage($totals().averageLossRatio)"
               [statusClass]="StatusColors.Warning">
             </app-status-badge>
           </td>
           <td class="actions-column"></td>
-        </tr>      </tbody>
+        </tr></tbody>
     </table>
   </div>
 </div>

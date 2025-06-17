@@ -9,8 +9,9 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   template: `
     <input
       class="search-input"
-      [class.outlined]="$outline()"
       type="text"
+      [class.outlined]="$outline()"
+      [class.search-small]="$small()"
       [style.width.px]="$width()"
       [placeholder]="$placeholder()"
       (input)="onSearchChange($event)"
@@ -25,7 +26,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
       border: 1px solid $card-bg;
       border-radius: 20px;
       padding: 0.5rem 1rem;
-      margin-left: 1rem;
       height: 40px;
       width: 480px;
       font-size: 0.9rem;
@@ -43,12 +43,19 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
         color: $search-placeholder-text;
       }
     }
+
+    .search-small {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      height: 28px;
+    }
   `,
 })
 export class SearchComponent {
   $placeholder = input<string>('', { alias: 'placeholder' });
   $width = input<number>(480, { alias: 'width' });
-  $outline = input<boolean, unknown>(false, { alias: 'outline', transform: booleanAttribute });
+  $outline = input(false, { alias: 'outline', transform: booleanAttribute });
+  $small = input(false, { alias: 'small', transform: booleanAttribute });
 
   searchValue = output<string>();
 

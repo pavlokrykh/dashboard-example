@@ -22,6 +22,9 @@
       font-weight: $fw-semibold;
       color: $text-primary;
     }
+    app-search {
+      display: flex;
+    }
   }
 }
 

@@ -8,6 +8,7 @@ import { StatusBadgeComponent } from '@shared/components/status-badge/status-bad
 import { StatusColors } from '@shared/enums/status-colors.enum';
 import { CurrencyFormatPipe } from '@shared/pipes/currency-format.pipe';
 import { LossRatioClassPipe } from '@shared/pipes/loss-ratio-class.pipe';
+import { ValuePlaceholderPipe } from '@shared/pipes/value-placeholder.pipe';
 import { PolicyStatusClassPipe } from './pipes/policy-status-class.pipe';
 import { PolicyStatusPipe } from './pipes/policy-status.pipe';
 
@@ -21,6 +22,7 @@ import { PolicyStatusPipe } from './pipes/policy-status.pipe';
     LossRatioClassPipe,
     StatusBadgeComponent,
     SearchComponent,
+    ValuePlaceholderPipe,
   ],
   templateUrl: './policies-list.component.html',
   styleUrls: ['./policies-list.component.scss'],
@@ -33,6 +35,7 @@ export class PoliciesListComponent {
 
   $policiesList = signal<IPolicy[]>([]);
   $searchValue = signal<string>('');
+
   $filteredPolicies = computed(() => {
     const searchValue = this.$searchValue().toLowerCase();
     const policies = this.$policiesList();
@@ -45,13 +48,66 @@ export class PoliciesListComponent {
       (policy) => policy.line.toLowerCase().includes(searchValue) || policy.id.toLowerCase().includes(searchValue),
     );
   });
+  $totals = computed(() => {
+    const policies = this.$filteredPolicies();
+
+    const totals = policies.reduce(
+      (acc, policy) => {
+        acc.expiringTech += policy.expiringTech;
+        acc.expiringPremium += policy.expiringPremium;
+        acc.renewalToTech += policy.renewalToTech;
+        acc.renewalTech += policy.renewalTech;
+        acc.renewalPremium += policy.renewalPremium;
+
+        if (policy.rateChange !== null) {
+          acc.rateChangeSum += policy.rateChange;
+          acc.rateChangeCount += 1;
+        }
+
+        if (policy.lossRatio !== null) {
+          acc.lossRatioSum += policy.lossRatio;
+          acc.lossRatioCount += 1;
+        }
+
+        return acc;
+      },
+      {
+        expiringTech: 0,
+        expiringPremium: 0,
+        renewalToTech: 0,
+        renewalTech: 0,
+        renewalPremium: 0,
+        rateChangeSum: 0,
+        rateChangeCount: 0,
+        lossRatioSum: 0,
+        lossRatioCount: 0,
+      },
+    );
+
+    return {
+      count: policies.length,
+      expiringTech: totals.expiringTech,
+      expiringPremium: totals.expiringPremium,
+      renewalToTech: totals.renewalToTech,
+      renewalTech: totals.renewalTech,
+      renewalPremium: totals.renewalPremium,
+      averageRateChange: totals.rateChangeCount > 0 ? (totals.rateChangeSum / totals.rateChangeCount).toFixed(1) : null,
+      averageLossRatio: totals.lossRatioCount > 0 ? (totals.lossRatioSum / totals.lossRatioCount).toFixed(1) : null,
+    };
+  });
 
   constructor() {
     this.getPoliciesList();
   }
-
   onSearchChange(searchValue: string): void {
     this.$searchValue.set(searchValue);
+  }
+  getLossRatioDecimal(lossRatio: number | null): number {
+    return lossRatio ? lossRatio / 100 : 0;
+  }
+
+  formatPercentage(value: string | null): string {
+    return value ? `${value}%` : 'N/A';
   }
 
   private getPoliciesList() {
@@ -63,46 +119,5 @@ export class PoliciesListComponent {
           this.$policiesList.set(policies);
         },
       });
-  }
-
-  getLossRatioDecimal(lossRatio: number | null): number {
-    return lossRatio ? lossRatio / 100 : 0;
-  }
-
-  getLossRatioText(lossRatio: number | null): string {
-    return lossRatio ? `${lossRatio}%` : 'N/A';
-  }
-  getTotalExpiringTech(): number {
-    return this.$filteredPolicies().reduce((total, policy) => total + policy.expiringTech, 0);
-  }
-
-  getTotalExpiringPremium(): number {
-    return this.$filteredPolicies().reduce((total, policy) => total + policy.expiringPremium, 0);
-  }
-
-  getTotalRenewalToTech(): number {
-    return this.$filteredPolicies().reduce((total, policy) => total + policy.renewalToTech, 0);
-  }
-
-  getTotalRenewalTech(): number {
-    return this.$filteredPolicies().reduce((total, policy) => total + policy.renewalTech, 0);
-  }
-
-  getTotalRenewalPremium(): number {
-    return this.$filteredPolicies().reduce((total, policy) => total + policy.renewalPremium, 0);
-  }
-
-  getAverageRateChange(): string {
-    const policies = this.$filteredPolicies().filter((p) => p.rateChange !== null);
-    if (policies.length === 0) return 'N/A';
-    const average = policies.reduce((sum, policy) => sum + (policy.rateChange || 0), 0) / policies.length;
-    return average.toFixed(1);
-  }
-
-  getAverageLossRatio(): string {
-    const policies = this.$filteredPolicies().filter((p) => p.lossRatio !== null);
-    if (policies.length === 0) return 'N/A';
-    const average = policies.reduce((sum, policy) => sum + (policy.lossRatio || 0), 0) / policies.length;
-    return average.toFixed(1);
   }
 }
